@@ -1,5 +1,4 @@
 <?php
-<?php
 require_once "./Models/EmpresasModel.php";
 //require_once "./Views/EmpresasView.php";
 
@@ -39,5 +38,4 @@ class EmpresasController{
     header("Location: ".BASE_URL);
   }
 }
-?>
 ?>
