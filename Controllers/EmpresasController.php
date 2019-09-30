@@ -1,17 +1,17 @@
 <?php
 require_once "./Models/EmpresasModel.php";
-//require_once "./Views/EmpresasView.php";
+require_once "./Views/EmpresasView.php";
 
 class EmpresasController{
   private $model;
   private $view;
-
-  public function __construc(){
-    $this->model=new EmpresasModel();
-    //$this->view = new EmpresasView();
+  
+  public function __construct() {
+    $this->model = new EmpresasModel();
+    $this->view = new EmpresasView();
   }
 
-  public function getEmpresas(){
+  public function verEmpresas(){
     $empresas=$this->model->getEmpresas();
     $this->view->displayEmpresas($empresas);
   }
