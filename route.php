@@ -22,7 +22,7 @@ if($action == '') {
                 break;
             case 'verify':
                 $loginController->verifyUser();
-            break;
+                break;
             case 'logout'://new controller por cada case?
                 $loginController->logout();
             break;
@@ -61,11 +61,8 @@ if($action == '') {
                 break;
             default:
                 home();
+                break;
         }
-    }
-    
+    }   
 }
-
-
-
 ?>
