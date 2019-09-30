@@ -41,7 +41,10 @@ if($action == '') {
                 $empresasController->verEmpresa($partesURL[1]);
                 break;
             case "editarempresa":
-                $empresasController->editarEmpresa($partesURL[1],$partesURL);
+                $empresasController->editarEmpresa($partesURL[1]);
+                break;
+            case "updateempresa":
+            $empresasController->updateEmpresa($partesURL[1]);
                 break;
             case "insertarempresa":
                 $empresasController->insertarEmpresa();
