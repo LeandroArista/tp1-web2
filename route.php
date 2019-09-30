@@ -37,6 +37,12 @@ if($action == '') {
             case "empresas":
                 $empresasController->getEmpresas();
                 break;
+            case "verempresa":
+                $empresasController->verEmpresa($partesURL[1]);
+                break;
+            case "editarempresa":
+                $empresasController->editarEmpresa($partesURL[1],$partesURL);
+                break;
             case "insertarempresa":
                 $empresasController->insertarEmpresa();
                 break;
