@@ -16,4 +16,9 @@ class LoginView {
         $this->smarty->display('templates/ver_login.tpl');
     }
 
+    public function showRegister(){
+        $this->smarty->assign('titulo', 'Registrarse');
+        $this->smarty->display('templates/ver_register.tpl');
+    }
+
 }

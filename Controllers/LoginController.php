@@ -1,15 +1,15 @@
 <?php
 include_once('./views/LoginView.php');
-include_once('./models/UsuariosModel.php');
-
+include_once('./Controllers/UsuariosController.php');
 class LoginController {
 
     private $view;
-    private $model;
+   
+    private $controller;
 
     public function __construct() {
         $this->view = new LoginView();
-        $this->model = new UsuariosModel();
+        $this->controller= new UsuariosController;
     }
 
     public function showLogin() {
@@ -20,7 +20,7 @@ class LoginController {
         $nombre = $_POST['nombre'];
         $clave = $_POST['clave'];
 
-        $user = $this->model->getByNombreUsuario($nombre);
+        $user = $this->controller->getByNombreUsuario($nombre);
 
         // encontró un user con el nombre que mandó, y tiene la misma contraseña
         if (!empty($user) && password_verify($clave, $user->clave)) {
@@ -34,6 +34,13 @@ class LoginController {
         } else {
             $this->view->showLogin("Login incorrecto");
         }
+    }
+    public function saveRegister(){
+        $this->controller->insertarUsuario();
+    }
+
+    public function register(){
+        $this->view->showRegister();
     }
 
     public function logout() {

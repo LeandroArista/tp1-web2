@@ -17,6 +17,12 @@ if($action == '') {
     if (isset($action)){
         $partesURL = explode("/", $action);
         switch ($partesURL[0]) {
+            case "saveregister":
+                $loginController->saveRegister();
+                break;
+            case "register":
+                $loginController->register();
+            break;
             case 'login':
                 $loginController->showLogin();
                 break;
@@ -35,15 +41,15 @@ if($action == '') {
             case "borrarcohete":
                 $cohetesController->borrarCohete($partesURL[1]);
                 break;
-            case "usuarios" :
-                $usuariosController->getUsuarios();
-                break;
-            case "insertarusuario":
-                $usuariosController->insertarUsuario();
-                break;
-            case "borrarusuario":
-                $usuariosController->borrarUsuario($partesURL[1]);
-                break;
+            // case "usuarios" :
+            //     $usuariosController->getUsuarios();
+            //     break;
+            // case "insertarusuario":
+            //     $usuariosController->insertarUsuario();
+            //     break;
+            // case "borrarusuario":
+            //     $usuariosController->borrarUsuario($partesURL[1]);
+            //     break;
             case "empresas":
                 $empresasController->getEmpresas();
                 break;
