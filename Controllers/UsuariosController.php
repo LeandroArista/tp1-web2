@@ -22,7 +22,7 @@
     }
 
     public function getByNombreUsuario($nombre){
-      $usuarios=$this->model->getByNombreUsuario($nombre);
+      $usuario=$this->model->getByNombreUsuario($nombre);
       return $usuario;
     }
 

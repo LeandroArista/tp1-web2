@@ -37,6 +37,7 @@ class LoginController {
     }
     public function saveRegister(){
         $this->controller->insertarUsuario();
+        header('Location: '. LOGIN);
     }
 
     public function register(){
@@ -46,6 +47,6 @@ class LoginController {
     public function logout() {
         session_start();
         session_destroy();
-        header('Location: ' . LOGIN);
+        header('Location: ' . 'home');
     }
 }

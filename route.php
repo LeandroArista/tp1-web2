@@ -5,10 +5,11 @@ require_once "Controllers/UsuariosController.php";
 require_once "php/script.php";
 
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
+define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
+define("REGISTER", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/register');
 
 $cohetesController = new CohetesController();
 $empresasController = new EmpresasController();
-$usuariosController = new UsuariosController();
 $loginController = new LoginController();
 $action = $_GET['action'];
 if($action == '') {
@@ -17,6 +18,9 @@ if($action == '') {
     if (isset($action)){
         $partesURL = explode("/", $action);
         switch ($partesURL[0]) {
+            case "home":
+                home();
+            break;
             case "saveregister":
                 $loginController->saveRegister();
                 break;
@@ -41,15 +45,6 @@ if($action == '') {
             case "borrarcohete":
                 $cohetesController->borrarCohete($partesURL[1]);
                 break;
-            // case "usuarios" :
-            //     $usuariosController->getUsuarios();
-            //     break;
-            // case "insertarusuario":
-            //     $usuariosController->insertarUsuario();
-            //     break;
-            // case "borrarusuario":
-            //     $usuariosController->borrarUsuario($partesURL[1]);
-            //     break;
             case "empresas":
                 $empresasController->getEmpresas();
                 break;
