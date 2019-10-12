@@ -1,6 +1,6 @@
 <?php
   require_once "./Models/UsuariosModel.php";
-  //require_once "./Views/UsuariosView.php";
+  require_once "./Views/UsuariosView.php";
 
   class UsuariosController{
     private $model;
@@ -8,17 +8,22 @@
 
     public function __construc(){
       $this->model=new UsuariosModel();
-      //$this->view = new UsuariosView();
+      $this->view = new UsuariosView();
     }
 
     public function getUsuarios(){
       $usuarios=$this->model->getUsuarios();
-      //$this->view->displayUsuarios($usuarios);
+      $this->view->displayUsuarios($usuarios);
     }
 
     public function getUsuario($id_usuario){
       $usuarios=$this->model->getUsuario($id_usuario);
-      //$this->view->displayUsuario($usuarios);
+      $this->view->displayUsuario($usuarios);
+    }
+
+    public function getByNombreUsuario($nombre){
+      $usuario=$this->model->getByNombreUsuario($nombre);
+      return $usuario;
     }
 
     public function insertarUsuario(){

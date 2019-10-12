@@ -13,12 +13,17 @@ class EmpresasController{
 
   public function getEmpresas(){
     $empresas=$this->model->getEmpresas();
-    //$this->view->displayEmpresas($empresas);
+    $this->view->displayEmpresas($empresas);
   }
 
   public function getEmpresa($id_empresa){
     $empresa=$this->model->getEmpresa($id_empresa);
-    //$this->view->displayEmpresa($empresa);
+    return $empresa;
+  }
+  
+  public function verEmpresa($id_empresa){
+    $empresa=$this->model->getEmpresa($id_empresa);
+    $this->view->displayEmpresa($empresa);
   }
 
   public function insertarEmpresa(){
@@ -27,7 +32,11 @@ class EmpresasController{
     header("Location: ".BASE_URL);
   }
 
-  public function editarEmpresa($id_empresa){
+
+  public function editarEmpresa($id_empresa){///de donde traigo los datos de la vista?
+    $empresa=getEmpresa($id_empresa);
+    $this->view->editarEmpresa($empresa);
+    
     $fecha = date('Y-m-d', strtotime($_POST['fecha_fundacion']));
     $this->model->editarEmpresa($id_empresa,$_POST['nombre'],$_POST['propietario'],$_POST['pais'],$fecha);
     header("Location: ".BASE_URL);
