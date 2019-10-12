@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-        <form action="edit" method="post">
+        <form action="update/{$empresa->id_empresa}" method="post">
             <input type="text" name="nombre" placeholder="{$empresa->nombre}">
             <input type="text" name="propietario" placeholder="{$empresa->propietario}">
             <input type="text" name="pais" placeholder="{$empresa->pais}">
