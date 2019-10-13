@@ -7,7 +7,7 @@ class EmpresasView{
 
   }
 
-  public function displayEmpresas($empresas,$logged){//action edit or insert if null default insert
+  public function displayEmpresas($empresas){//action edit or insert if null default insert
     $smarty= new Smarty();
     $smarty->assign('titulo','Mostrar Empresas');
     $smarty->assign('BASE_URL',BASE_URL);

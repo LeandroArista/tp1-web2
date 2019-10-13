@@ -37,30 +37,39 @@ if($action == '') {
                 $loginController->logout();
             break;
             case "cohetes" :
+                $cohetesController = new CohetesController();
                 $cohetesController->getCohetes();
                 break;
             case "insertarcohete":
+                $cohetesController = new CohetesController();
                 $cohetesController->insertarCohete();
                 break;
             case "borrarcohete":
+                $cohetesController = new CohetesController();
                 $cohetesController->borrarCohete($partesURL[1]);
                 break;
             case "empresas":
-                $empresasController->getEmpresas();
+                $empresasController = new EmpresasController();
+                $empresasController->verEmpresas();
                 break;
             case "verempresa":
+                $empresasController = new EmpresasController();
                 $empresasController->verEmpresa($partesURL[1]);
                 break;
             case "editarempresa":
+                $empresasController = new EmpresasController();
                 $empresasController->editarEmpresa($partesURL[1]);
                 break;
             case "updateempresa":
-            $empresasController->updateEmpresa($partesURL[1]);
+                $empresasController = new EmpresasController();
+                $empresasController->updateEmpresa($partesURL[1]);
                 break;
             case "insertarempresa":
+                $empresasController = new EmpresasController();
                 $empresasController->insertarEmpresa();
                 break;
             case "borrarempresa":
+                $empresasController = new EmpresasController();
                 $empresasController->borrarEmpresa($partesURL[1]);
                 break;
             default:
