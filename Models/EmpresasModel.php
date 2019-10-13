@@ -3,17 +3,9 @@ class EmpresasModel {
   private $db;
 
   function __construct() {
-    $this->checkLoggedIn();
     $this->db = new PDO('mysql:host=localhost;'.'dbname=db_tpespecial;charset=utf8','root', '');
   }
 
-  private function checkLoggedIn() {
-    session_start();
-    if (!isset($_SESSION['id_usuario'])) {
-        header('Location: ' . LOGIN);
-        die();
-    }       
-  }
   public function getEmpresas() {
     $sentencia = $this->db->prepare('SELECT * FROM empresas');
     $sentencia->execute();
@@ -43,4 +35,3 @@ class EmpresasModel {
     $sentencia->execute(array($id_empresa));
   }
 }
-?>

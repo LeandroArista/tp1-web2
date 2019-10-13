@@ -6,19 +6,23 @@ class LoginView {
     private $smarty;
 
     public function __construct() {
-        $this->smarty = new Smarty();
-        $this->smarty->assign('basehref', BASE_URL);
+       
     }
 
     public function showLogin($error = null) {
-        $this->smarty->assign('titulo', 'Iniciar Sesión');
+        echo BASE_URL;
+        $this->smarty = new Smarty();
+        $this->smarty->assign('BASE_URL',BASE_URL);
+        $this->smarty->assign('titulo','IniciarSesión');
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/ver_login.tpl');
     }
 
-    public function showRegister(){
-        $this->smarty->assign('titulo', 'Registrarse');
+    public function showRegister($error = null){
+        $this->smarty = new Smarty();
+        $this->smarty->assign('BASE_URL',BASE_URL);
+        $this->smarty->assign('titulo','Registrarse');
+        $this->smarty->assign('error',$error);
         $this->smarty->display('templates/ver_register.tpl');
     }
-
 }

@@ -19,7 +19,8 @@ class LoginController {
     public function verifyUser() {
         $nombre = $_POST['nombre'];
         $clave = $_POST['clave'];
-
+        echo $nombre;
+        echo $clave;
         $user = $this->controller->getByNombreUsuario($nombre);
 
         // encontró un user con el nombre que mandó, y tiene la misma contraseña
@@ -30,23 +31,38 @@ class LoginController {
             $_SESSION['id_usuario'] = $user->id_usuario;
             $_SESSION['nombre'] = $user->nombre;
 
-            header('Location: ver');
+            header('Location:'.'home');
         } else {
             $this->view->showLogin("Login incorrecto");
         }
     }
     public function saveRegister(){
+        echo "QUE TE PASA A VOS SEÑOR REGISTER?";
         $this->controller->insertarUsuario();
-        header('Location: '. LOGIN);
+        echo "QUE TE PASA A VOS SEÑOR REGISTER 2?";
+        header('Location:'.LOGIN_URL);
     }
 
     public function register(){
         $this->view->showRegister();
     }
 
+    public function checkLogin() {
+        session_start();
+        if (!isset($_SESSION['id_usuario'])) {
+          return false;
+        }elseif (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000)) {
+          header("Location:".LOGOUT_URL);
+          die();
+        }else {
+            $_SESSION["LAST_ACTIVITY"] = time();
+            return true;
+        }
+      }    
+
     public function logout() {
         session_start();
         session_destroy();
-        header('Location: ' . 'home');
+        header('Location:'.'home');
     }
 }

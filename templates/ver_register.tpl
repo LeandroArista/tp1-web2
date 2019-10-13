@@ -8,7 +8,7 @@
             <input type="nombre" name="nombre" class="form-control" placeholder="Ingrese Nombre">
         </div>
         <div class="form-group">
-            <label>E-mail)</label>
+            <label>E-mail</label>
             <input type="email" name="mail" class="form-control" placeholder="Ingrese E-mail">
         </div>
 
@@ -16,16 +16,13 @@
             <label>Password</label>
             <input type="password" name="clave" class="form-control" placeholder="Password">
         </div>
-
-        {if $error}
-        <div class="alert alert-danger" role="alert">
-            {$error}
-        </div>
+         {if $error}
+            <div class="alert alert-danger" role="alert">
+                {$error}
+            </div>
         {/if}
-
-        <button type="submit" class="btn btn-primary">Registrar</button>
+        <input type="submit" class="btn btn-primary" value="Registrar">
     </form>
-
 </div>
-  </body>
+</body>
 </html>

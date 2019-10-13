@@ -4,8 +4,8 @@
         <h1>{$titulo}</h1>
 
         <div class="form-group">
-            <label>Usuario (email)</label>
-            <input type="email" name="nombre" class="form-control" placeholder="Ingrese email">
+            <label>Usuario</label>
+            <input type="text" name="nombre" class="form-control" placeholder="Ingrese nombre de usuario">
         </div>
 
         <div class="form-group">
