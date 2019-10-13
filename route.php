@@ -5,9 +5,12 @@ require_once "Controllers/UsuariosController.php";
 require_once "php/script.php";
 
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
+define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
+define("REGISTER", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/register');
 
 $cohetesController = new CohetesController();
-
+$empresasController = new EmpresasController();
+$loginController = new LoginController();
 $action = $_GET['action'];
 if($action == '') {
   home();
@@ -15,6 +18,24 @@ if($action == '') {
     if (isset($action)){
         $partesURL = explode("/", $action);
         switch ($partesURL[0]) {
+            case "home":
+                home();
+            break;
+            case "saveregister":
+                $loginController->saveRegister();
+                break;
+            case "register":
+                $loginController->register();
+            break;
+            case 'login':
+                $loginController->showLogin();
+                break;
+            case 'verify':
+                $loginController->verifyUser();
+                break;
+            case 'logout'://new controller por cada case?
+                $loginController->logout();
+            break;
             case "cohetes" :
                 $cohetesController = new CohetesController();
                 $cohetesController->getCohetes();
@@ -26,18 +47,6 @@ if($action == '') {
             case "borrarcohete":
                 $cohetesController = new CohetesController();
                 $cohetesController->borrarCohete($partesURL[1]);
-                break;
-            case "usuarios" :
-                $usuariosController = new UsuariosController();
-                $usuariosController->getUsuarios();
-                break;
-            case "insertarusuario":
-                $usuariosController = new UsuariosController();
-                $usuariosController->insertarUsuario();
-                break;
-            case "borrarusuario":
-                $usuariosController = new UsuariosController();
-                $usuariosController->borrarUsuario($partesURL[1]);
                 break;
             case "empresas":
                 $empresasController = new EmpresasController();
@@ -65,11 +74,8 @@ if($action == '') {
                 break;
             default:
                 home();
+                break;
         }
-    }
-    
+    }   
 }
-
-
-
 ?>

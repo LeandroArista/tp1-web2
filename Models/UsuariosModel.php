@@ -12,6 +12,12 @@ class UsuariosModel {
     $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
     return $usuarios;
   }
+	public function getByNombreUsuario($nombre) {
+    $sentencia = $this->db->prepare("SELECT * FROM usuarios WHERE nombre = ?");
+    $sentencia->execute(array($nombre));
+    $usuario = $sentencia->fetch(PDO::FETCH_OBJ);
+    return $usuario;
+  }
 
   public function getUsuario($id_usuario) {
     $sentencia = $this->db->prepare("SELECT * FROM usuarios WHERE id_usuario = ?");
