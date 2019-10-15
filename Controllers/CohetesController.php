@@ -6,7 +6,7 @@ class CohetesController{
   private $model;
   private $view;
 
-  public function __construc(){
+  public function __construct(){
     $this->model=new CohetesModel();
     //$this->view = new CohetesView();
   }

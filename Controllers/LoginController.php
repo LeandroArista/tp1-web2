@@ -19,10 +19,10 @@ class LoginController {
     public function verifyUser() {
         $nombre = $_POST['nombre'];
         $clave = $_POST['clave'];
-        echo $nombre;
-        echo $clave;
         $user = $this->controller->getByNombreUsuario($nombre);
-
+        
+        $result= password_verify($clave, $user->clave);
+        echo "$result";
         // encontró un user con el nombre que mandó, y tiene la misma contraseña
         if (!empty($user) && password_verify($clave, $user->clave)) {
             
@@ -31,15 +31,13 @@ class LoginController {
             $_SESSION['id_usuario'] = $user->id_usuario;
             $_SESSION['nombre'] = $user->nombre;
 
-            header('Location:'.'home');
+            header('Location:'.BASE_URL);
         } else {
             $this->view->showLogin("Login incorrecto");
         }
     }
     public function saveRegister(){
-        echo "QUE TE PASA A VOS SEÑOR REGISTER?";
         $this->controller->insertarUsuario();
-        echo "QUE TE PASA A VOS SEÑOR REGISTER 2?";
         header('Location:'.LOGIN_URL);
     }
 

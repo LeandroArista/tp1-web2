@@ -6,8 +6,8 @@
     private $model;
     private $view;
 
-    public function __construc(){
-      $this->model=new UsuariosModel();
+    public function __construct(){
+      $this->model = new UsuariosModel();      
       $this->view = new UsuariosView();
     }
 
@@ -22,18 +22,19 @@
     }
 
     public function getByNombreUsuario($nombre){
-      echo $this->model;
       $usuario=$this->model->getByNombreUsuario($nombre);
       return $usuario;
     }
 
     public function insertarUsuario(){
-      $this->model->insertarUsuario($_POST['nombre'],$_POST['mail'],$_POST['clave']);
+      $clave=password_hash($_POST['clave'],PASSWORD_DEFAULT );
+      $this->model->insertarUsuario($_POST['nombre'],$_POST['mail'],$clave);
       header("Location:".BASE_URL);
     }
 
     public function editarUsuario($id_usuario){
-      $this->model->editarUsuario($id_usuario,$_POST['nombre'],$_POST['mail'],$_POST['clave']);
+      $clave=password_hash($_POST['clave'],PASSWORD_DEFAULT );
+      $this->model->editarUsuario($id_usuario,$_POST['nombre'],$_POST['mail'],$clave);
       header("Location:".BASE_URL);
     }
 

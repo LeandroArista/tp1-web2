@@ -23,11 +23,9 @@ if($action == '') {
                 home();
             break;
             case "saveregister":
-                echo "QUE TE PASA A VOS?";
                 $loginController->saveRegister();
                 break;
             case "register":
-            echo "QUE TE PASA A VOS?";
                 $loginController->register();
             break;
             case "login":

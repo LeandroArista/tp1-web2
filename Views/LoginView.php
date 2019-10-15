@@ -10,7 +10,6 @@ class LoginView {
     }
 
     public function showLogin($error = null) {
-        echo BASE_URL;
         $this->smarty = new Smarty();
         $this->smarty->assign('BASE_URL',BASE_URL);
         $this->smarty->assign('titulo','IniciarSesión');
