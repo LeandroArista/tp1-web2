@@ -27,7 +27,7 @@ class EmpresasModel {
 
   public function editarEmpresa($id_empresa,$nombre,$propietario,$pais,$fecha_fundacion) {
     $sentencia = $this->db->prepare('UPDATE empresas SET nombre = :nombre, propietario = :propietario ,pais = :pais,fecha_fundacion = :fecha_fundacion WHERE id_empresa = :id_empresa');
-    $sentencia->execute(array('id_empresa'=>$id_empresa,'nombre'=>$nombre,'$propietario'=>$propietario,'pais'=>$pais,'fecha_fundacion'=>$fecha_fundacion));
+    $sentencia->execute(array('id_empresa'=>$id_empresa,'nombre'=>$nombre,'propietario'=>$propietario,'pais'=>$pais,'fecha_fundacion'=>$fecha_fundacion));
   }
 
   public function borrarEmpresa($id_empresa) {

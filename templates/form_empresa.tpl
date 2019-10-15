@@ -1,9 +1,9 @@
 {include file="header.tpl"}
-        <form action="update/{$empresa->id_empresa}" method="post">
-            <input type="text" name="nombre" placeholder="{$empresa->nombre}">
-            <input type="text" name="propietario" placeholder="{$empresa->propietario}">
-            <input type="text" name="pais" placeholder="{$empresa->pais}">
-            <input type="date" name="fecha_fundacion" placeholder="{$empresa->fecha_fundacion}">
+        <form action="updateempresa/{$Empresa->id_empresa}" method="post">
+            <input type="text" name="nombre" value="{$Empresa->nombre}">
+            <input type="text" name="propietario" value="{$Empresa->propietario}">
+            <input type="text" name="pais" value="{$Empresa->pais}">
+            <input type="date" name="fecha_fundacion" value="{$Empresa->fecha_fundacion}">
             <input type="submit" value="Guardar">
         </form>
     </body>
