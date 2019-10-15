@@ -23,7 +23,7 @@ class EmpresasView{
     $smarty= new Smarty();
     $smarty->assign('titulo','Mostrar Empresas');
     $smarty->assign('BASE_URL',BASE_URL);
-    $smarty->assign('Empresa',$empresa);
+    $smarty->assign('Empresa',array($empresa));
     if (!$isLogged){
       $smarty->display('templates/ver_empresa.tpl');
     }else{

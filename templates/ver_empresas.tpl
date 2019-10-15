@@ -1,8 +1,17 @@
 {include file="header.tpl"}
-    <ul>
+     <table>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th></th>
+      </tr>
       {foreach from=$lista_empresas item=empresa}
-        <li>{$empresa->id_empresa}: {$empresa->nombre}: {$empresa->propietario}: {$empresa->pais}: {$empresa->fecha_fundacion}</li>
+        <tr>
+          <td>{$empresa->id_empresa}</td>
+          <td>{$empresa->nombre}</td> 
+          <td><a href='verempresa/{$empresa->id_empresa}'>Ver</a></td>
+        </tr>
       {/foreach}
-    </ul>
+    </table>
   </body>
 </html>

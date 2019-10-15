@@ -31,7 +31,7 @@ class LoginController {
             $_SESSION['id_usuario'] = $user->id_usuario;
             $_SESSION['nombre'] = $user->nombre;
 
-            header('Location:'.BASE_URL);
+            header('Location:'."empresas");
         } else {
             $this->view->showLogin("Login incorrecto");
         }
