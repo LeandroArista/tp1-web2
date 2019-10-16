@@ -34,7 +34,7 @@ class CohetesController{
   public function insertarCohete(){
     $fecha = date('Y-m-d', strtotime($_POST['fecha_creacion']));
     $this->model->insertarCohete($_POST['nombre'],$fecha,$_POST['altura'],$_POST['diametro'],$_POST['masa'],$_POST['id_empresa']);
-    //header("Location:".BASE_URL."cohetes");
+    header("Location:".BASE_URL."cohetes");
   }
 
   public function editarCohete($id_cohete){
