@@ -12,11 +12,8 @@ class EmpresasView{
     $smarty->assign('titulo','Mostrar Empresas');
     $smarty->assign('BASE_URL',BASE_URL);
     $smarty->assign('lista_empresas',$empresas);
-    if (!$isLogged){
-      $smarty->display('templates/ver_empresas.tpl');
-    }else {
-      $smarty->display('templates/ver_empresas_admin.tpl');
-    }
+    $smarty->assign('logged',$isLogged);
+    $smarty->display('templates/ver_empresas.tpl');
   }
 
   public function displayEmpresa($empresa, $isLogged){
@@ -24,11 +21,8 @@ class EmpresasView{
     $smarty->assign('titulo','Mostrar Empresas');
     $smarty->assign('BASE_URL',BASE_URL);
     $smarty->assign('Empresa',array($empresa));
-    if (!$isLogged){
-      $smarty->display('templates/ver_empresa.tpl');
-    }else{
-      $smarty->display('templates/ver_empresa_admin.tpl');
-    }
+    $smarty->assign('logged',$isLogged);
+    $smarty->display('templates/ver_empresa.tpl');
   }
 
   public function editarEmpresa($empresa){
