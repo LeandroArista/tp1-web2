@@ -28,7 +28,7 @@ class CohetesController{
     $isLogged = $this->login->checkLogin();
     $cohete=$this->model->getCohete($id_cohete);
     $empresas=$this->empresasController->getEmpresas();
-    $this->view->displayCohetes($cohete,$isLogged,$empresas);
+    $this->view->displayCohete($cohete,$isLogged,$empresas);
   }
 
   public function insertarCohete(){

@@ -14,7 +14,7 @@ class CohetesModel {
   }
 
   public function getCohete($id_cohete) {
-    $sentencia = $this->db->prepare("SELECT * FROM cohetes WHERE id_cohete = ?");
+    $sentencia = $this->db->prepare("SELECT c.id_cohete,c.nombre,c.fecha_creacion,c.altura,c.diametro,c.masa,e.nombre AS empresa,e.propietario,e.pais FROM cohetes AS c INNER JOIN empresas AS e ON c.id_empresa=e.id_empresa WHERE c.id_cohete = ?");
     $sentencia->execute(array($id_cohete));
     $cohete = $sentencia->fetch(PDO::FETCH_OBJ);
     return $cohete;
