@@ -46,6 +46,9 @@ if($action == '') {
             case "borrarcohete":
                 $cohetesController->borrarCohete($partesURL[1]);
                 break;
+            case "vercohete":
+                $cohetesController->getCohete($partesURL[1]);
+                break;
             case "empresas":
                 $empresasController->verEmpresas();
                 break;

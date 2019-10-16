@@ -3,21 +3,13 @@
       <tr>
         <th>Id Cohete</th>
         <th>Nombre</th>
-        <th>Fecha Creacion</th>
-        <th>Altura</th>
-        <th>Diamertro</th>
-        <th>Masa</th>
         <th>Empresa</th>
         <th></th>
       </tr>
       {foreach from=$lista_cohetes item=cohete}
         <tr>
           <td>{$cohete->id_cohete}</td> 
-          <td>{$cohete->nombre}</td> 
-          <td>{$cohete->fecha_creacion}</td> 
-          <td>{$cohete->altura}</td> 
-          <td>{$cohete->diametro}</td> 
-          <td>{$cohete->masa}</td> 
+          <td>{$cohete->nombre}</td>  
           {foreach from=$lista_empresas item=empresa}
             {if $cohete->id_empresa == $empresa->id_empresa}
               <td>{$empresa->nombre}</td>
@@ -26,7 +18,7 @@
           {if $logged } 
             <td><a href='vercohete/{$cohete->id_cohete}'>Ver </a><a href='editarcohete/{$cohete->id_cohete}'>Editar</a> <a href='borrarcohete/{$cohete->id_cohete}'>Borrar</a></td>
           {else}
-            <td><a href='verempresa/{$empresa->id_empresa}'>Ver</a></td>
+            <td><a href='vercohete/{$empresa->id_empresa}'>Ver</a></td>
           {/if}
         </tr>
       {/foreach}
