@@ -7,12 +7,14 @@ class CohetesView{
 
   }
 
-  public function displayCohetes($cohetes){
+  public function displayCohetes($cohetes,$isLogged,$empresas){
     $smarty= new Smarty();
     $smarty->assign('titulo','Mostrar Cohetes');
     $smarty->assign('BASE_URL',BASE_URL);
     $smarty->assign('lista_cohetes',$cohetes);
-    //$smarty->display('templates/ver_cohetes.tpl');
+    $smarty->assign('lista_empresas',$empresas);
+    $smarty->assign('logged',$isLogged);
+    $smarty->display('templates/ver_cohetes.tpl');
   }
 }
 
