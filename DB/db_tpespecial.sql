@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2019 a las 23:11:02
+-- Tiempo de generación: 17-10-2019 a las 00:56:31
 -- Versión del servidor: 10.1.40-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -37,6 +37,14 @@ CREATE TABLE `cohetes` (
   `masa` int(11) NOT NULL,
   `id_empresa` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cohetes`
+--
+
+INSERT INTO `cohetes` (`id_cohete`, `nombre`, `fecha_creacion`, `altura`, `diametro`, `masa`, `id_empresa`) VALUES
+(1, 'falcon1', '2006-06-24', 21, 2, 38, 1),
+(2, 'falcon9', '2010-06-04', 70, 3, 549, 1);
 
 -- --------------------------------------------------------
 
@@ -112,7 +120,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `cohetes`
 --
 ALTER TABLE `cohetes`
-  MODIFY `id_cohete` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cohete` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `empresas`
@@ -125,6 +133,16 @@ ALTER TABLE `empresas`
 --
 ALTER TABLE `usuarios`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `cohetes`
+--
+ALTER TABLE `cohetes`
+  ADD CONSTRAINT `cohetes_ibfk_1` FOREIGN KEY (`id_empresa`) REFERENCES `empresas` (`id_empresa`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
