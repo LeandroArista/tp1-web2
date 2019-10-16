@@ -24,7 +24,11 @@ class EmpresasController{
     $empresa=$this->model->getEmpresa($id_empresa);
     return $empresa;
   }
-  
+  public function getEmpresas(){
+    $empresas=$this->model->getEmpresas();
+    return $empresas;
+  }
+
   public function verEmpresa($id_empresa){
     $isLogged = $this->login->checkLogin();
     $empresa=$this->model->getEmpresa($id_empresa);

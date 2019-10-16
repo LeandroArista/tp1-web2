@@ -21,7 +21,7 @@ class CohetesModel {
   }
 
   public function insertarCohete($nombre,$fecha_creacion,$altura,$diametro,$masa,$id_empresa) {
-    $sentencia = $this->db->prepare("INSERT INTO cohetes(nombre,fecha_creacion,altura,diametro,masa,id_empresa) VALUES(?,?,?,?,?,?,?)");
+    $sentencia = $this->db->prepare("INSERT INTO cohetes(nombre,fecha_creacion,altura,diametro,masa,id_empresa) VALUES(?,?,?,?,?,?)");
     $sentencia->execute(array($nombre,$fecha_creacion,$altura,$diametro,$masa,$id_empresa));
   }
 
