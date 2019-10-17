@@ -26,5 +26,4 @@
       {/foreach}
     </table>
     <a href='cohetes/'>Volver</a>
-  </body>
-</html>
+  {include file="footer.tpl"}

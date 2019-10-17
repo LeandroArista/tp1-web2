@@ -24,5 +24,4 @@
       {/foreach}
     </table>
     <a href='empresas/'>Volver</a>
-  </body>
-</html>
+  {include file="footer.tpl"}

@@ -38,5 +38,4 @@
       <input type="submit" value="Insertar">
     </form>
     {/if}
-  </body>
-</html>
+{include file="footer.tpl"}

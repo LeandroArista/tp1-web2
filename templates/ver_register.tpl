@@ -24,5 +24,4 @@
         <input type="submit" class="btn btn-primary" value="Registrar">
     </form>
 </div>
-</body>
-</html>
+{include file="footer.tpl"}
