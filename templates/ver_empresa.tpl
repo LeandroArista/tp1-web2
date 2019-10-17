@@ -1,6 +1,6 @@
 {include file="header.tpl"}
-    <table>
-      <tr>
+    <table class="table table-bordered">
+      <tr class="thead-dark">
         <th>ID</th>
         <th>Nombre</th>
         <th>Propietario</th>
@@ -18,10 +18,13 @@
           <td>{$empresa->pais}</td>
           <td>{$empresa->fecha_fundacion}</td> 
           {if $logged}
-             <td><a href='editarempresa/{$empresa->id_empresa}'>Editar</a> <a href='borrarempresa/{$empresa->id_empresa}'>Borrar</a></td>
+             <td>
+             <a href='editarempresa/{$empresa->id_empresa}' class="edit"><i class="far fa-edit"></i></a>
+             <a href='borrarempresa/{$empresa->id_empresa}'class="delete"><i class="far fa-trash-alt"></i></a>
+             </td>
           {/if}
         </tr>
       {/foreach}
     </table>
-    <a href='empresas/'>Volver</a>
+    <a href='empresas/'><i class="fas fa-arrow-left fa-2x"></i></a>
   {include file="footer.tpl"}

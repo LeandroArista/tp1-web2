@@ -1,4 +1,3 @@
-{include file="header.tpl"}
         <form action="updateempresa/{$Empresa->id_empresa}" method="post">
             <input type="text" name="nombre" value="{$Empresa->nombre}">
             <input type="text" name="propietario" value="{$Empresa->propietario}">
@@ -6,5 +5,3 @@
             <input type="date" name="fecha_fundacion" value="{$Empresa->fecha_fundacion}">
             <input type="submit" value="Guardar">
         </form>
-    </body>
-</html>

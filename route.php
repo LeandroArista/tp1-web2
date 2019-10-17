@@ -2,6 +2,7 @@
 require_once "Controllers/EmpresasController.php";
 require_once "Controllers/CohetesController.php";
 require_once "Controllers/LoginController.php";
+require_once "Views/IndexView.php";
 require_once "php/script.php";
 
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
@@ -12,15 +13,16 @@ define("LOGOUT_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT
 $empresasController = new EmpresasController();
 $cohetesController = new CohetesController();
 $loginController = new LoginController();
+$index = new IndexView();
 $action = $_GET['action'];
 if($action == '') {
-  home();
+    $index->displayIndex();
 }else{
     if (isset($action)){
         $partesURL = explode("/", $action);
         switch ($partesURL[0]) {
             case "home":
-                home();
+                $index->displayIndex();
             break;
             case "saveregister":
                 $loginController->saveRegister();
@@ -34,7 +36,7 @@ if($action == '') {
             case "verify":
                 $loginController->verifyUser();
                 break;
-            case "logout"://new controller por cada case?
+            case "logout":
                 $loginController->logout();
             break;
             case "cohetes":

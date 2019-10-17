@@ -201,18 +201,13 @@ content-element-image {
   cursor: pointer;
 }
 
-/* table.table td a.delete {
-  background-color: #E34724;
-  border-radius: 15px;
-} */
-
 .table.table td a.edit:hover{
   color:orange;
 }
 .table.table td a.delete:hover{
   color:red;
 }
-.table.table td a.save:hover{
+.table.table td a.view:hover{
   color:green;
 }
 

@@ -29,7 +29,7 @@
           </h1>
         </div>
 
-        <div class="col-3 col-sm-6 col-md-3 justify-content-end align-self-center">
+        <div class="col-3 col-sm-5 col-md-4 justify-content-end align-self-center">
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-links"
             aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,13 +37,19 @@
           <div class="navbar-collapse collapse align-self-center justify-content-end group" id="navbar-links">
             <ul class="nav navbar-nav align-self-center justify-content-end">
               <li class="nav-item active">
-                <a class="nav-link" href="#Home">Home </a>
+                <a class="nav-link" href="home">Home </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#Agencias">Agencias</a>
+                <a class="nav-link" href="empresas">Empresas</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#Historia">Historia</a>
+                <a class="nav-link" href="cohetes">Cohetes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="logout">Logout</a>
               </li>
             </ul>
           </div>
