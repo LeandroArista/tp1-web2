@@ -1,10 +1,24 @@
 {include file="header.tpl"}
-        <form action="updateempresa/{$Empresa->id_empresa}" method="post">
-            <input type="text" name="nombre" value="{$Empresa->nombre}">
-            <input type="text" name="propietario" value="{$Empresa->propietario}">
-            <input type="text" name="pais" value="{$Empresa->pais}">
-            <input type="date" name="fecha_fundacion" value="{$Empresa->fecha_fundacion}">
-            <input type="submit" value="Guardar">
+        <div class="">
+        <form action="updateempresa/{$Empresa->id_empresa}" class="form-dark form-group form-control-lg m-2" method="post">
+            <div class="form-group">
+                <label for="nombre">Empresa</label>
+                <input type="text" class="form-control" name="nombre" id="nombre" value="{$Empresa->nombre}">
+            </div>
+            <div class="form-group">
+                <label for="propietario">Propietario</label>
+                <input type="text" class="form-control" name="propietario" id="propietario" value="{$Empresa->propietario}">
+            </div>
+            <div class="form-group">
+                <label for="pais">Pais</label>
+                <input type="text" class="form-control" name="pais" id="pais" value="{$Empresa->pais}">
+            </div>
+            <div class="form-group">
+                <label for="fecha_fundacion">Fecha Fundacion</label>
+                <input type="date" class="form-control" name="fecha_fundacion" id="fecha_fundacion" value="{$Empresa->fecha_fundacion}">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Guardar">
         </form>
-    </body>
-</html>
+        <a href='empresas/' class="ml-2"><i class="fas fa-arrow-left fa-2x "></i></a>
+        </div>
+{include file="footer.tpl"}

@@ -1,6 +1,12 @@
 {include file="header.tpl"}
-      <table>
-      <tr>
+      <form action="sortcohete"  class="form-group m-2 align-content-end" method="post">
+          <div class="custom-control custom-checkbox">
+            <input type="submit" class="custom-control-input" id="sort" name="sort">
+            <label class="custom-control-label" for="sort">Ordenar por categoria</label>
+          </div>
+      </form>
+      <table class="table table-bordered">
+      <tr class="thead-dark">
         <th>Id Cohete</th>
         <th>Nombre</th>
         <th>Empresa</th>
@@ -16,27 +22,30 @@
             {/if}
           {/foreach}
           {if $logged } 
-            <td><a href='vercohete/{$cohete->id_cohete}'>Ver </a><a href='editarcohete/{$cohete->id_cohete}'>Editar</a> <a href='borrarcohete/{$cohete->id_cohete}'>Borrar</a></td>
+            <td>
+            <a href='vercohete/{$cohete->id_cohete}' class="view">Ver</a>
+            <a href='editarcohete/{$cohete->id_cohete}' class="edit"><i class="far fa-edit"></i></a>
+            <a href='borrarcohete/{$cohete->id_cohete}' class="delete"><i class="far fa-trash-alt"></i></a>
+            </td>
           {else}
-            <td><a href='vercohete/{$empresa->id_empresa}'>Ver</a></td>
+            <td><a href='vercohete/{$empresa->id_empresa}' class="view">Ver</a></td>
           {/if}
         </tr>
       {/foreach}
     </table>
     {if $logged }
-    <form action="insertarcohete" method="post">
-      <input type="text" name="nombre" placeholder="Nombre">
-      <input type="date" name="fecha_creacion" placeholder="Fecha de Creacion">
-      <input type="text" name="altura" placeholder="Altura">
-      <input type="text" name="diametro" placeholder="Diametro">
-      <input type="text" name="masa" placeholder="Masa">
-      <select name="id_empresa">
+    <form action="insertarcohete"  class="form-dark form-group form-control-lg m-4" method="post">
+      <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+      <input type="date" class="form-control" name="fecha_creacion" placeholder="Fecha de Creacion">
+      <input type="text" class="form-control" name="altura" placeholder="Altura">
+      <input type="text" class="form-control" name="diametro" placeholder="Diametro">
+      <input type="text" class="form-control" name="masa" placeholder="Masa">
+      <select class="form-control" name="id_empresa">
         {foreach from=$lista_empresas item=empresa}
           <option value="{$empresa->id_empresa}">{$empresa->nombre}</option>
         {/foreach}
       </select>
-      <input type="submit" value="Insertar">
+      <input type="submit" class="btn btn-primary" value="Insertar">
     </form>
     {/if}
-  </body>
-</html>
+{include file="footer.tpl"}
