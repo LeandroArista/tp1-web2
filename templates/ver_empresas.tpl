@@ -22,11 +22,11 @@
       {/foreach}
     </table>
     {if $logged }
-      <form action="insertarempresa" method="post">
-        <input type="text" name="nombre" placeholder="Nombre">
-        <input type="text" name="propietario" placeholder="Propietario">
-        <input type="text" name="pais" placeholder="Pais">
-        <input type="date" name="fecha_fundacion" placeholder="Fecha de Fundacion">
+      <form action="insertarempresa" class="form-dark form-group form-control-lg m-4" method="post">
+        <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+        <input type="text" class="form-control" name="propietario" placeholder="Propietario">
+        <input type="text" class="form-control" name="pais" placeholder="Pais">
+        <input type="date" class="form-control"name="fecha_fundacion" placeholder="Fecha de Fundacion">
         <input type="submit" class="btn btn-primary" value="Insertar">
       </form>
     {/if}

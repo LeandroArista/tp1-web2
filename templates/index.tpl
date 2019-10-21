@@ -47,63 +47,8 @@
           disponemos en este momento. Sin embargo, debido a las condiciones climáticas cambiantes y a otros
           factores que no se controlan, es fácil que las fechas de lanzamiento varíen.
         </p>
-        <section class="table-section table-responsive">
-
-          <div class="container">
-            <div class="table-wrapper">
-              <div class="table-title">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <h2>Lista de proximos lanzamientos </h2>
-                  </div>
-
-                </div>
-                <table class="table table-bordered" id="launcher-table">
-                  <thead class="thead-dark">
-                    <tr>
-                      <th scope="col">Fecha de lanzamiento</th>
-                      <th scope="col">Cliente</th>
-                      <th scope="col">Lugar de lanzamiento</th>
-                      <th scope="col">Vehiculo</th>
-                      <th scope="col">Objetivo</th>
-                      <th scope="col"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  </tbody>
-                </table>
-                <div class="container mt-2 mb-3">
-                  <input type="text" name="" id="filter-launcher"></input>
-                  <button id="search-launcher"><i class="fas fa-search"> </i></button>
-                  <input type="button" value="Desactivar Filtro" id="disable-filter"></input>
-                </div>
-              </div>
-            </div>
-        </section>
       </article>
-      <section>
-        <header>
-          <h2>Agregar datos a la tabla</h2>
-        </header>
-        <form class="mb-4" id="form-add-Table">
-
-          <input type="text" class="form-control" name="fecha-lanzamiento" id="launcher"
-            placeholder="Fecha lanzamiento">
-          <input type="text" class="form-control" name="Cliente" id="Client" placeholder="Cliente">
-          <input type="text" class="form-control" name="lugar" id="place" placeholder="Lugar de lanzamiento">
-          <input type="text" class="form-control" name="vehiculo" id="vehicle" placeholder="Vehiculo">
-          <input type="text" class="form-control" name="objetivo" id="objective" placeholder="Objetivo">
-
-          <div class="btn-group " role="group">
-            <button type="button" class="btn btn-info add-new add" id="add1"><i class="fa fa-plus "></i>
-              Agregar</button>
-            <button type="button" class="btn btn-info add-new " id="add3" alt="Add 3 rows"><i
-                class="fa fa-plus "></i> Agregar 3 Filas</button>
-            <button type="button" class="btn btn-info add-new" id="deltable" alt="Delete table"><i
-                class="far fa-trash-alt"></i> Tabla</button>
-          </div>
-        </form>
-      </section>
+      
       <article>
         <header>
           <h2 class="content-element-title">Reutilización: la clave para que la vida humana sea multiplanetaria</h2>
@@ -193,44 +138,6 @@
         se
         eleva, creando una corriente de ascenso.
       </p>
-
-    </section>
-    <section>
-      <header>
-        <h3 class="title-form text-center">Complete el formulario para subscribirse a novedades!</h3>
-      </header>
-      <div class="d-flex justify-content-center align-items-center container">
-        <form class="form-dark p-4 m-2 col-md-10" id="form-main">
-          <div class="form-row justify-content-center">
-            <div class="col-md-4 mb-3">
-              <label for="form-name">Nombre</label>
-              <input type="text" class="form-control" id="form-name" required>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="validationServerEmail">Email</label>
-              <input type="email" class="form-control" id="validationServerEmail" required>
-            </div>
-          </div>
-          <div class="form-row justify-content-center">
-            <div class="col-md- mb-3">
-              <label id="label-captcha" for="form-captcha"><span>Captcha : </span><span
-                  id="captcha">captcha</span></label>
-              <button id="btn-captcha" type="button"><i class="fas fa-redo"></i></button>
-              <input type="text" name="captcha" class="form-control md-2" id="form-captcha" min="0" max="9999"
-                title="Rellene este campo." required>
-              <div class="invalid-feedback">
-                Ingrese el Captcha correcto
-              </div>
-              <div class="valid-feedback">
-                El Captcha es correcto
-              </div>
-            </div>
-          </div>
-          <div class="form-row justify-content-center">
-            <button class="btn btn-primary" type="submit" id="form-submit">Submit form</button>
-          </div>
-        </form>
-      </div>
     </section>
 </main>
 {include file="footer.tpl"}
