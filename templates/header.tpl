@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <base href='{$BASE_URL}'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="shortcut icon" type="image/png" href="./images/favicon.png">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
       <title>{$titulo}</title>
 </head>
 
@@ -31,10 +27,10 @@
 
         <div class="col-3 col-sm-5 col-md-4 justify-content-end align-self-center">
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-links"
-            aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="navbar-collapse collapse align-self-center justify-content-end group" id="navbar-links">
+          <div class="collapse navbar-collapse align-self-center justify-content-end group" id="navbar-links">
             <ul class="nav navbar-nav align-self-center justify-content-end">
               <li class="nav-item active">
                 <a class="nav-link" href="home">Home </a>
