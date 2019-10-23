@@ -46,7 +46,9 @@ class LoginController {
     }
 
     public function checkLogin() {
-        session_start();
+        if(!isset($_SESSION)){
+            session_start();
+        }
         if (!isset($_SESSION['id_usuario'])) {
           return false;
         }elseif (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000)) {
@@ -61,6 +63,6 @@ class LoginController {
     public function logout() {
         session_start();
         session_destroy();
-        header('Location:'.'home');
+        header('Location:'.BASE_URL);
     }
 }

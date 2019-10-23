@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-     <table class="table table-bordered ">
+     <table class="table table-bordered m-4">
       <tr class="thead-dark">
         <th>ID</th>
         <th>Nombre</th>

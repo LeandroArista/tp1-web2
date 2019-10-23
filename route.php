@@ -22,7 +22,7 @@ if($action == '') {
         $partesURL = explode("/", $action);
         switch ($partesURL[0]) {
             case "home":
-                $index->displayIndex();
+                $index->displayIndex($loginController->checkLogin());
             break;
             case "saveregister":
                 $loginController->saveRegister();
