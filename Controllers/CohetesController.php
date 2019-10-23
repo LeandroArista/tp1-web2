@@ -21,7 +21,15 @@ class CohetesController{
     $isLogged = $this->login->checkLogin();
     $cohetes=$this->model->getCohetes();
     $empresas=$this->empresasController->getEmpresas();
-    $this->view->displayCohetes($cohetes,$isLogged,$empresas);
+    $this->view->displayCohetes($cohetes,$isLogged,$empresas,false);
+  }
+
+  public function getSortCohetes(){
+    $isLogged = $this->login->checkLogin();
+    $cohetes=$this->model->getSortCohetes();
+    $empresas=$this->empresasController->getEmpresas();
+    $this->view->displayCohetes($cohetes,$isLogged,$empresas,true);
+    
   }
 
   public function getCohete($id_cohete){

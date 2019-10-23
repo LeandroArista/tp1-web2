@@ -51,6 +51,9 @@ if($action == '') {
             case "vercohete":
                 $cohetesController->getCohete($partesURL[1]);
                 break;
+            case "sortcohetes":
+                $cohetesController->getSortCohetes();
+                break;
             case "empresas":
                 $empresasController->verEmpresas();
                 break;

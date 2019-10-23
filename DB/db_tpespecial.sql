@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2019 a las 00:56:31
--- Versión del servidor: 10.1.40-MariaDB
--- Versión de PHP: 7.3.5
+-- Tiempo de generación: 23-10-2019 a las 04:46:00
+-- Versión del servidor: 10.4.8-MariaDB
+-- Versión de PHP: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,7 +44,10 @@ CREATE TABLE `cohetes` (
 
 INSERT INTO `cohetes` (`id_cohete`, `nombre`, `fecha_creacion`, `altura`, `diametro`, `masa`, `id_empresa`) VALUES
 (1, 'falcon1', '2006-06-24', 21, 2, 38, 1),
-(2, 'falcon9', '2010-06-04', 70, 3, 549, 1);
+(2, 'falcon9', '2010-06-04', 70, 3, 549, 1),
+(3, 'Electron', '2007-05-25', 17, 1, 100, 2),
+(4, 'Proton', '1965-07-16', 53, 7, 657, 3),
+(5, 'Falcon Heavy', '2018-02-06', 70, 3, 1420, 1);
 
 -- --------------------------------------------------------
 
@@ -66,7 +69,8 @@ CREATE TABLE `empresas` (
 
 INSERT INTO `empresas` (`id_empresa`, `nombre`, `propietario`, `pais`, `fecha_fundacion`) VALUES
 (1, 'spacex', 'elon musk', 'eeuu', '2002-05-06'),
-(2, 'Rocket Lab', 'Peter Beck', 'eeuu', '2006-06-01');
+(2, 'Rocket Lab', 'Peter Beck', 'eeuu', '2006-06-01'),
+(3, 'International Launch Services', 'Frank McKenna', 'Rusia', '1993-04-15');
 
 -- --------------------------------------------------------
 
@@ -120,13 +124,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `cohetes`
 --
 ALTER TABLE `cohetes`
-  MODIFY `id_cohete` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_cohete` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `empresas`
 --
 ALTER TABLE `empresas`
-  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

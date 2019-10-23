@@ -1,10 +1,10 @@
 {include file="header.tpl"}
-      <form action="sortcohete"  class="form-group m-2 align-content-end" method="post">
-          <div class="custom-control custom-checkbox">
-            <input type="submit" class="custom-control-input" id="sort" name="sort">
-            <label class="custom-control-label" for="sort">Ordenar por categoria</label>
-          </div>
-      </form>
+      {if $sort}
+      <a class="btn btn-primary" href="cohetes" role="button"><i class="far fa-eye-slash"></i></a>
+      {else}
+       <a class="btn btn-primary" href="sortcohetes" role="button"><i class="far fa-eye"></i></a>
+      {/if}
+      <label>Ordenar por Empresa</label>
       <table class="table table-bordered">
       <tr class="thead-dark">
         <th>Id Cohete</th>
