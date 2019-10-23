@@ -3,7 +3,7 @@ class EmpresasModel {
   private $db;
 
   function __construct() {
-    $this->db = new PDO('mysql:host=localhost;'.'dbname=db_tpespecial;charset=utf8','root', '');
+      $this->db = new PDO('mysql:host=localhost;'.'dbname=db_tpespecial;charset=utf8','root', '');
   }
 
   public function getEmpresas() {

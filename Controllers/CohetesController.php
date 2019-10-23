@@ -47,5 +47,10 @@ class CohetesController{
     $this->model->borrarCohete($id_cohete);
     header("Location:".BASE_URL."cohetes");
   }
+
+  public function borrarCohetes($id_empresa){
+    $this->model->borrarCohetes($id_empresa);
+    header("Location:".BASE_URL."cohetes");
+  }
 }
 ?>

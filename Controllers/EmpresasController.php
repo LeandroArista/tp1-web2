@@ -2,16 +2,19 @@
 require_once "./Models/EmpresasModel.php";
 require_once "./Views/EmpresasView.php";
 require_once "./Controllers/LoginController.php";
+require_once "./Models/CohetesModel.php";
 
 class EmpresasController{
   private $model;
   private $view;
   private $login;
+  private $CohetesModel;
   
   public function __construct() {
     $this->model = new EmpresasModel();
     $this->view = new EmpresasView();
     $this->login = new LoginController();
+    $this->CohetesModel= new CohetesModel;
   }
 
   public function verEmpresas(){
@@ -53,7 +56,8 @@ class EmpresasController{
   }
 
   public function borrarEmpresa($id_empresa){
+    $this->CohetesModel->borrarCohetes($id_empresa);
     $this->model->borrarEmpresa($id_empresa);
-    header("Location:".BASE_URL);
+    header("Location:".BASE_URL."/empresas");
   }
 }
