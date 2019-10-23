@@ -29,6 +29,7 @@ class EmpresasView{
     $smarty= new Smarty();
     $smarty->assign('titulo','Mostrar Empresas');
     $smarty->assign('BASE_URL',BASE_URL);
+    $smarty->assign('logged',true);
     $smarty->assign('Empresa',$empresa);
     $smarty->display('templates/form_empresa.tpl');
   }
