@@ -13,6 +13,13 @@ class CohetesModel {
     return $cohetes;
   }
 
+  public function getSortCohetes() {
+    $sentencia = $this->db->prepare("SELECT * from cohetes ORDER BY (id_empresa) DESC");
+    $sentencia->execute();
+    $cohetes = $sentencia->fetchAll(PDO::FETCH_OBJ);
+    return $cohetes;
+  }
+
   public function getCohete($id_cohete) {
     $sentencia = $this->db->prepare("SELECT c.id_cohete,c.nombre,c.fecha_creacion,c.altura,c.diametro,c.masa,e.nombre AS empresa,e.propietario,e.pais FROM cohetes AS c INNER JOIN empresas AS e ON c.id_empresa=e.id_empresa WHERE c.id_cohete = ?");
     $sentencia->execute(array($id_cohete));

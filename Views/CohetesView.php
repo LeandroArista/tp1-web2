@@ -7,9 +7,10 @@ class CohetesView{
 
   }
 
-  public function displayCohetes($cohetes,$isLogged,$empresas){
+  public function displayCohetes($cohetes,$isLogged,$empresas,$sort){
     $smarty= new Smarty();
     $smarty->assign('titulo','Mostrar Cohetes');
+    $smarty->assign('sort',$sort);
     $smarty->assign('BASE_URL',BASE_URL);
     $smarty->assign('lista_cohetes',$cohetes);
     $smarty->assign('lista_empresas',$empresas);
