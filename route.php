@@ -3,7 +3,7 @@ require_once "Controllers/EmpresasController.php";
 require_once "Controllers/CohetesController.php";
 require_once "Controllers/LoginController.php";
 require_once "Views/IndexView.php";
-require_once "php/script.php";
+
 
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
 define("LOGIN_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
@@ -48,6 +48,12 @@ if($action == '') {
             case "borrarcohete":
                 $cohetesController->borrarCohete($partesURL[1]);
                 break;
+            case "editarcohete":
+                $cohetesController->editarCohete($partesURL[1]);
+                break;
+            case "updatecohete":
+                $cohetesController->updateCohete($partesURL[1]);
+                break;
             case "vercohete":
                 $cohetesController->getCohete($partesURL[1]);
                 break;
@@ -73,7 +79,7 @@ if($action == '') {
                 $empresasController->borrarEmpresa($partesURL[1]);
                 break;
             default:
-                home();
+                $index->displayIndex();
                 break;
         }
     }   
