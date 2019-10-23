@@ -3,7 +3,7 @@ class CohetesModel {
   private $db;
 
   function __construct() {
-    $this->db = new PDO('mysql:host=localHost;'.'dbname=db_tpespecial;charset=utf8','root','');
+      $this->db = new PDO('mysql:host=localHost;'.'dbname=db_tpespecial;charset=utf8','root','');
   }
 
   public function getCohetes() {
@@ -33,6 +33,10 @@ class CohetesModel {
   public function borrarCohete($id_cohete) {
     $sentencia = $this->db->prepare("DELETE FROM cohetes WHERE id_cohete = ?");
     $sentencia->execute(array($id_cohete));
+  }
+  public function borrarCohetes($id_empresa) {
+    $sentencia = $this->db->prepare("DELETE FROM cohetes WHERE id_empresa = ?");
+    $sentencia->execute(array($id_empresa));
   }
 
 }
