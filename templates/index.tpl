@@ -3,7 +3,7 @@
       <article>
         <header>
           <h2 class="content-element-title">
-            Próximos Lanzamientos
+            Bienvenidos
           </h2>
         </header>
         <section class="carousel-section">
@@ -35,17 +35,8 @@
           </div>
         </section>
         <p class="content-element-p">
-          SpaceX es bien conocido por sus impactantes lanzamientos de cohetes que nos mantienen pegados a las
-          pantallas y de los nervios sin saber si la misión será un éxito o por el contrario, fallará. Ver
-          estos
-          lanzamientos se ha vuelto tan popular que SpaceX está por emitir en vivo casi todos.
-        </p>
-        <p class="content-element-p"> ¿Quieres ver un
-          Falcon Heavy o la cápsula Dragón elevarse al cielo? Aquí tienes el
-          calendario
-          con los próximos lanzamientos de SpaceX, con las fechas actualizadas con la información de la que
-          disponemos en este momento. Sin embargo, debido a las condiciones climáticas cambiantes y a otros
-          factores que no se controlan, es fácil que las fechas de lanzamiento varíen.
+          Esta pagina se dedica a llevar un recuento de las diferentes empresas Aeroespaciales y los cohetes que se envian
+          al espacio. Cada lanzamiento es una mejora que debe ser documentada.
         </p>
       </article>
       

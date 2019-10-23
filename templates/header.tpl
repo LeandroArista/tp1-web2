@@ -25,7 +25,7 @@
           </h1>
         </div>
 
-        <div class="col-3 col-sm-5 col-md-4 justify-content-end align-self-center">
+        <div class="col-3 col-sm-4 col-md-4 justify-content-end align-self-center">
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-links"
             aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -41,12 +41,19 @@
               <li class="nav-item">
                 <a class="nav-link" href="cohetes">Cohetes</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="login">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="logout">Logout</a>
-              </li>
+              {if $logged }
+                <li class="nav-item" >
+                  <a class="nav-link" href="logout">Logout</a>
+                </li>
+              {else}
+                <li class="nav-item">
+                  <a class="nav-link" href="login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="register">Register</a>
+                </li>
+              {/if}
+              
             </ul>
           </div>
         </div>

@@ -10,18 +10,20 @@ class LoginView {
     }
 
     public function showLogin($error = null) {
-        $this->smarty = new Smarty();
-        $this->smarty->assign('BASE_URL',BASE_URL);
-        $this->smarty->assign('titulo','IniciarSesión');
-        $this->smarty->assign('error', $error);
-        $this->smarty->display('templates/ver_login.tpl');
+        $smarty = new Smarty();
+        $smarty->assign('BASE_URL',BASE_URL);
+        $smarty->assign('logged',null);
+        $smarty->assign('titulo','IniciarSesión');
+        $smarty->assign('error', $error);
+        $smarty->display('templates/ver_login.tpl');
     }
 
     public function showRegister($error = null){
-        $this->smarty = new Smarty();
-        $this->smarty->assign('BASE_URL',BASE_URL);
-        $this->smarty->assign('titulo','Registrarse');
-        $this->smarty->assign('error',$error);
-        $this->smarty->display('templates/ver_register.tpl');
+        $smarty = new Smarty();
+        $smarty->assign('BASE_URL',BASE_URL);
+        $smarty->assign('logged',null);
+        $smarty->assign('titulo','Registrarse');
+        $smarty->assign('error',$error);
+        $smarty->display('templates/ver_register.tpl');
     }
 }
