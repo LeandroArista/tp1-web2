@@ -19,6 +19,7 @@
                 <input type="date" class="form-control" name="fecha_fundacion" id="fecha_fundacion" value="{$Empresa->fecha_fundacion}">
             </div>
             <input type="submit" class="btn btn-primary" value="Guardar">
+            <a role="button" class="btn btn-primary m-2" href='borrarempresa/{$Empresa->id_empresa}'>Borrar</a>
         </form>
         <a href='empresas/' class="ml-2"><i class="fas fa-arrow-left fa-2x "></i></a>
 </section>

@@ -64,4 +64,4 @@
         </div>
       </nav>
     </header>
-    <main>
+    <main class="align-self-center">
