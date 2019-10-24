@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-<section class="m-4">
+<section class="m-4 align-content-center">
     <table class="table table-bordered">
       <tr class="thead-dark">
         <th>Id Cohete</th>

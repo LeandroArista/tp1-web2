@@ -1,5 +1,5 @@
         </main>
-        <footer class="bg-personalized  sticky-bottom ">     
+        <footer class="bg-personalized  ">     
                 <div class="container text-center text-light ">
                         <div class="row">
                                 <div class="col-md-12 pt-4 pb-2">
@@ -19,7 +19,7 @@
                         </div>
                 </div>
         </footer>
-        
+        </div>
         </body>
         <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
