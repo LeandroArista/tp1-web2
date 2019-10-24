@@ -1,4 +1,5 @@
 {include file="header.tpl"}
+<section>
      <table class="table table-bordered m-4">
       <tr class="thead-dark">
         <th>ID</th>
@@ -30,4 +31,5 @@
         <input type="submit" class="btn btn-primary" value="Insertar">
       </form>
     {/if}
+  </section>
  {include file="footer.tpl"}

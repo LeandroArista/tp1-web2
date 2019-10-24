@@ -1,5 +1,8 @@
 body {
   background-color: rgb(241, 241, 241);
+}
+html,body{
+  width: 100%;
   min-height: 100%;
 }
 
@@ -48,9 +51,8 @@ main {
 }
 
 footer {
-  padding-right: 1%;
   height: 10%;
-  bottom: 0;
+  flex-shrink: none;
 }
 
 .navbar-text {

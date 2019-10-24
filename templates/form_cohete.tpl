@@ -1,5 +1,5 @@
 {include file="header.tpl" }
-<div class="">
+<section>
         <form action="updatecohete/{$Cohete->id_cohete}" class="form-dark form-group form-control-lg m-2" method="post">
             <div class="form-group">
                 <label for="nombre">Empresa</label>
@@ -29,5 +29,5 @@
             <input type="submit" class="btn btn-primary" value="Guardar">
         </form>
         <a href='cohetes' class="ml-2"><i class="fas fa-arrow-left fa-2x "></i></a>
-</div>
+</section>
 {include file="footer.tpl" }

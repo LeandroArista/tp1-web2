@@ -1,4 +1,5 @@
 {include 'templates/header.tpl'}
+<section>
 <div class="container">
     <form action="verify" method="POST" class="col-md-4 offset-md-4 mt-4 form-dark form-control-lg mb-4  ">
         <h1>{$titulo}</h1>
@@ -21,6 +22,6 @@
 
         <button type="submit" class="btn btn-primary">Ingresar</button>
     </form>
-
 </div>
-  {include file="footer.tpl"}
+</section>
+{include file="footer.tpl"}

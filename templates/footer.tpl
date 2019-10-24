@@ -1,11 +1,24 @@
-</main>
-<footer class="bg-personalized text-light text-right font-weight-bold">
-    <span> &copy;SpaceRocket</span>
-  </footer>
-<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-</body>
+        </main>
+        <footer class="bg-personalized  sticky-bottom ">     
+                <div class="container text-center text-light ">
+                        <div class="row">
+                                <div class="col-md-12 pt-4 pb-2">
+                                        <div class="mb-2 flex-center">
+                                        <a class="fb-ic "><i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-lg "></i></a>
+                                        <a class="tw-ic"><i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-lg"> </i></a>
+                                        <a class="gplus-ic"><i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-lg"> </i></a>
+                                        <a class="li-ic"><i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-lg"> </i></a>
+                                        <a class="ins-ic"><i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-lg"> </i></a>
+                                        <a class="pin-ic"><i class="fab fa-pinterest fa-lg white-text fa-lg"> </i></a>
+                                        </div>
+                                        
+                                </div>
+                                <div class="footer-copyright flex-center font-weight-bold  col-md-12 py-1">
+                                                <span> &copy;SpaceRocket</span>
+                                </div> 
+                        </div>
+                </div>
+        </footer>
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        </body>
 </html>

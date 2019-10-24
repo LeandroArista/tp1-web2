@@ -1,4 +1,5 @@
 {include file="header.tpl"}
+<section>
     <table class="table table-bordered">
       <tr class="thead-dark">
         <th>ID</th>
@@ -27,4 +28,5 @@
       {/foreach}
     </table>
     <a href='empresas/'><i class="fas fa-arrow-left fa-2x"></i></a>
+  </section>
   {include file="footer.tpl"}
