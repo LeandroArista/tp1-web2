@@ -52,7 +52,7 @@ main {
 
 footer {
   height: 10%;
-  flex-shrink: none;
+  bottom: 0;
 }
 
 .navbar-text {
@@ -241,27 +241,3 @@ table.table .form-control {
   width: 90%;
 }
 
-#captcha {
-  border: 2px solid #F64747;
-  background-color: #FFF;
-  height: 100vh;
-  min-height: 960px;
-  max-width: 980px;
-  margin: 0 auto;
-  color: black;
-  font-size: 1.4rem;
-  font-style: bold;
-}
-.valid-feedback{
-  background-color: white;
-  border-radius: 5px;
-  text-align: center;
-  font-style: bold;
-}
-
- .invalid-feedback{
-  background-color: white;
-  border-radius: 5px;
-  text-align: center;
-  font-style: bold;	  font-style: bold;
-}
