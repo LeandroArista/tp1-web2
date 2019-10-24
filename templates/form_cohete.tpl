@@ -34,7 +34,8 @@
                 {/foreach}
                 </select>
             </div>
-            <input type="submit" class="btn btn-primary" value="Guardar">
+            <input type="submit" class="btn btn-primary m-2" value="Guardar">
+            <a role="button" class="btn btn-primary m-2" href='borrarcohete/{$Cohete->id_cohete}'>Borrar</a>
         </form>
         <a href='cohetes' class="ml-2"><i class="fas fa-arrow-left fa-2x "></i></a>
 </section>

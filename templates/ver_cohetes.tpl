@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-      <section>
+      <section class="align-content-center">
         <h1>Cohetes</h1>
         <div class="m-2">
           {if $sort}

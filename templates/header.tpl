@@ -13,7 +13,8 @@
       <link rel="shortcut icon" type="image/png" href="./images/favicon.png">
         <title>{$titulo}</title>
   </head>
-  <body class="h-100">
+  <body>
+    <div class="contenedor">
     <header>
       <nav class="navbar navbar-expand-sm navbar-expand-lg navbar-dark bg-personalized">
         <!--   BRAND   -->
@@ -61,7 +62,6 @@
             </div>
           </div>
         </div>
-
       </nav>
     </header>
-    <main class="d-flex flex-column">
+    <main class="align-self-center">

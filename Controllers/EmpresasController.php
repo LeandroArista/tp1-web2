@@ -46,7 +46,7 @@ class EmpresasController{
   public function updateEmpresa($id_empresa){
     $fecha = date('Y-m-d', strtotime($_POST['fecha_fundacion']));
     $this->model->editarEmpresa($id_empresa,$_POST['nombre'],$_POST['propietario'],$_POST['pais'],$fecha);
-    header("Location:".BASE_URL."/empresas");
+    header("Location:".BASE_URL."empresas");
   }
 
   public function editarEmpresa($id_empresa){
@@ -58,6 +58,6 @@ class EmpresasController{
   public function borrarEmpresa($id_empresa){
     $this->CohetesModel->borrarCohetes($id_empresa);
     $this->model->borrarEmpresa($id_empresa);
-    header("Location:".BASE_URL."/empresas");
+    header("Location:".BASE_URL."empresas");
   }
 }
