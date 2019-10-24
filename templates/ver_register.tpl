@@ -1,4 +1,5 @@
 {include 'templates/header.tpl'}
+<section>
 <div class="container ">
     <form action="saveregister" method="POST" class="col-md-4 offset-md-4 mt-4 form-dark form-control-lg mb-4 ">
         <h1>{$titulo}</h1>
@@ -24,4 +25,5 @@
         <input type="submit" class="btn btn-primary" value="Registrar">
     </form>
 </div>
+</section>
 {include file="footer.tpl"}
