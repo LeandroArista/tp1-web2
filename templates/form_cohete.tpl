@@ -1,5 +1,6 @@
 {include file="header.tpl" }
 <section>
+        <h1>Editar Cohete</h1>
         <form action="updatecohete/{$Cohete->id_cohete}" class="form-dark form-group form-control-lg m-2" method="post">
             <div class="form-group">
                 <label for="nombre">Empresa</label>
@@ -21,11 +22,18 @@
                 <label for="masa">Masa</label>
                 <input type="text" class="form-control" name="masa" id="masa" value="{$Cohete->masa}">
             </div>
-            <select class="form-control" name="id_empresa">
-              {foreach from=$lista_empresas item=empresa}
-                <option value="{$empresa->id_empresa}">{$empresa->nombre}</option>
-              {/foreach}
-            </select>
+            <div class="form-group">
+                <label for="id_empresa">Empresa</label>
+                <select class="form-control" name="id_empresa">
+                {foreach from=$lista_empresas item=empresa}
+                    {if $empresa->nombre == $Cohete->empresa } 
+                        <option selected value="{$empresa->id_empresa}">{$empresa->nombre}</option>
+                    {else}
+                        <option value="{$empresa->id_empresa}">{$empresa->nombre}</option>
+                    {/if}
+                {/foreach}
+                </select>
+            </div>
             <input type="submit" class="btn btn-primary" value="Guardar">
         </form>
         <a href='cohetes' class="ml-2"><i class="fas fa-arrow-left fa-2x "></i></a>

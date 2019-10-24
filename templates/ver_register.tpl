@@ -6,16 +6,16 @@
 
         <div class="form-group">
             <label>Usuario</label>
-            <input type="nombre" name="nombre" class="form-control" placeholder="Ingrese Nombre">
+            <input type="nombre" name="nombre" class="form-control" placeholder="Ingrese Nombre" required>
         </div>
         <div class="form-group">
             <label>E-mail</label>
-            <input type="email" name="mail" class="form-control" placeholder="Ingrese E-mail">
+            <input type="email" name="mail" class="form-control" placeholder="Ingrese E-mail" required>
         </div>
 
         <div class="form-group">
             <label>Password</label>
-            <input type="password" name="clave" class="form-control" placeholder="Password">
+            <input type="password" name="clave" class="form-control" placeholder="Password" required>
         </div>
          {if $error}
             <div class="alert alert-danger" role="alert">

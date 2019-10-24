@@ -1,6 +1,6 @@
 {include file="header.tpl"}
 <section>
-        <div class="">
+        <h1>Editar Empresa</h1>
         <form action="updateempresa/{$Empresa->id_empresa}" class="form-dark form-group form-control-lg m-2" method="post">
             <div class="form-group">
                 <label for="nombre">Empresa</label>
@@ -21,6 +21,5 @@
             <input type="submit" class="btn btn-primary" value="Guardar">
         </form>
         <a href='empresas/' class="ml-2"><i class="fas fa-arrow-left fa-2x "></i></a>
-        </div>
 </section>
 {include file="footer.tpl"}
