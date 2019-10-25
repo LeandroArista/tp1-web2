@@ -22,7 +22,6 @@ class LoginController {
         $user = $this->controller->getByNombreUsuario($nombre);
         
         $result= password_verify($clave, $user->clave);
-        echo "$result";
         // encontró un user con el nombre que mandó, y tiene la misma contraseña
         if (!empty($user) && password_verify($clave, $user->clave)) {
             
