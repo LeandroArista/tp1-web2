@@ -9,6 +9,8 @@ class CohetesView{
 
   public function displayCohetes($cohetes,$isLogged,$empresas,$sort){
     $smarty= new Smarty();
+    $smarty->assign('SelMenu', "Cohetes");
+    $smarty->assign('MENU', MENU);
     $smarty->assign('titulo','Mostrar Cohetes');
     $smarty->assign('sort',$sort);
     $smarty->assign('BASE_URL',BASE_URL);
@@ -20,6 +22,8 @@ class CohetesView{
 
   public function displayCohete($cohetes,$isLogged){
     $smarty= new Smarty();
+    $smarty->assign('SelMenu', "Cohetes");
+    $smarty->assign('MENU', MENU);
     $smarty->assign('titulo','Mostrar Cohete');
     $smarty->assign('BASE_URL',BASE_URL);
     $smarty->assign('lista_cohetes',array($cohetes));
@@ -29,6 +33,8 @@ class CohetesView{
 
   public function editarCohete($cohete,$empresas){
     $smarty= new Smarty();
+    $smarty->assign('SelMenu', "Cohetes");
+    $smarty->assign('MENU', MENU);
     $smarty->assign('titulo','Editar Cohete');
     $smarty->assign('BASE_URL',BASE_URL);
     $smarty->assign('logged',true);

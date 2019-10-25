@@ -11,6 +11,8 @@ class LoginView {
 
     public function showLogin($error = null) {
         $smarty = new Smarty();
+        $smarty->assign('SelMenu', "Login");
+        $smarty->assign('MENU', MENU);
         $smarty->assign('BASE_URL',BASE_URL);
         $smarty->assign('logged',null);
         $smarty->assign('titulo','IniciarSesión');
@@ -20,6 +22,8 @@ class LoginView {
 
     public function showRegister($error = null){
         $smarty = new Smarty();
+        $smarty->assign('SelMenu', "Register");
+        $smarty->assign('MENU', MENU);
         $smarty->assign('BASE_URL',BASE_URL);
         $smarty->assign('logged',null);
         $smarty->assign('titulo','Registrarse');

@@ -9,6 +9,8 @@ class IndexView{
 
   public function displayIndex(){
     $smarty= new Smarty();
+    $smarty->assign('SelMenu', "Home");
+    $smarty->assign('MENU', MENU);
     $smarty->assign('titulo','SpaceRocket');
     $smarty->assign('BASE_URL',BASE_URL);
     $isLogged = $this->login->checkLogin();

@@ -9,6 +9,8 @@ class EmpresasView{
 
   public function displayEmpresas($empresas, $isLogged){
     $smarty= new Smarty();
+    $smarty->assign('SelMenu', "Empresas");
+    $smarty->assign('MENU', MENU);
     $smarty->assign('titulo','Mostrar Empresas');
     $smarty->assign('BASE_URL',BASE_URL);
     $smarty->assign('lista_empresas',$empresas);
@@ -18,6 +20,8 @@ class EmpresasView{
 
   public function displayEmpresa($empresa, $isLogged){
     $smarty= new Smarty();
+    $smarty->assign('SelMenu', "Empresas");
+    $smarty->assign('MENU', MENU);
     $smarty->assign('titulo','Mostrar Empresas');
     $smarty->assign('BASE_URL',BASE_URL);
     $smarty->assign('Empresa',array($empresa));
@@ -27,6 +31,8 @@ class EmpresasView{
 
   public function editarEmpresa($empresa){
     $smarty= new Smarty();
+    $smarty->assign('SelMenu', "Empresas");
+    $smarty->assign('MENU', MENU);
     $smarty->assign('titulo','Mostrar Empresas');
     $smarty->assign('BASE_URL',BASE_URL);
     $smarty->assign('logged',true);
