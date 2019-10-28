@@ -3,40 +3,85 @@ require_once "Controllers/EmpresasController.php";
 require_once "Controllers/CohetesController.php";
 require_once "Controllers/LoginController.php";
 require_once "Views/IndexView.php";
-require_once "Router.php";
+
 
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
 define("LOGIN_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
 define("REGISTER_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/register');
 define("LOGOUT_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
 define("MENU",Array('Home'=>'home','Empresas'=>'empresas','Cohetes'=>'cohetes','Logout'=>'logout','Login'=>'login','Register'=>'register'));
-
-$resource = $_GET["action"];
-// método utilizado
-$method = $_SERVER["REQUEST_METHOD"];
-// instancia el router
-$router = new Router();
-// arma la tabla de ruteo
-$router->addRoute("saveregister", "POST", "LoginController", "saveRegister");
-$router->addRoute("register", "GET", "LoginController", "register");
-$router->addRoute("login", "GET", "LoginController", "showLogin");
-$router->addRoute("verify", "POST", "LoginController", "verifyUser");
-$router->addRoute("logout", "GET", "LoginController", "logout");
-$router->addRoute("cohetes", "GET", "CohetesController", "getCohetes");
-$router->addRoute("insertarcohete", "POST", "CohetesController", "insertarCohete");
-$router->addRoute("borrarcohete", "DELETE", "CohetesController", "borrarCohete");
-$router->addRoute("editarcohete", "GET", "CohetesController", "editarCohete");
-$router->addRoute("updatecohete", "UPDATE", "CohetesController", "updateCohete");
-$router->addRoute("vercohete", "GET", "CohetesController", "getCohete");
-$router->addRoute("sortcohetes", "GET", "CohetesController", "getSortCohetes");
-$router->addRoute("empresas", "GET", "EmpresasController", "verEmpresas");
-$router->addRoute("verempresa", "GET", "EmpresasController", "verEmpresa");
-$router->addRoute("editarempresa", "GET", "EmpresasController", "editarEmpresa");
-$router->addRoute("updateempresa", "UPDATE", "EmpresasController", "updateEmpresa");
-$router->addRoute("insertarempresa", "PUT", "EmpresasController", "insertarEmpresa");
-$router->addRoute("borrarempresa", "DELETE", "EmpresasController", "borrarEmpresa");
-$router->addRoute("home", "GET", "IndexView", "displayIndex");
-$router->setDefaultRoute("IndexView", "displayIndex");
-
-$router->route($resource, $method);
+$empresasController = new EmpresasController();
+$cohetesController = new CohetesController();
+$loginController = new LoginController();
+$index = new IndexView();
+$action = $_GET['action'];
+if($action == '') {
+    $index->displayIndex();
+}else{
+    if (isset($action)){
+        $partesURL = explode("/", $action);
+        switch ($partesURL[0]) {
+            case "home":
+                $index->displayIndex($loginController->checkLogin());
+            break;
+            case "saveregister":
+                $loginController->saveRegister();
+                break;
+            case "register":
+                $loginController->register();
+            break;
+            case "login":
+                $loginController->showLogin();
+                break;
+            case "verify":
+                $loginController->verifyUser();
+                break;
+            case "logout":
+                $loginController->logout();
+            break;
+            case "cohetes":
+                $cohetesController->getCohetes();
+                break;
+            case "insertarcohete":
+                $cohetesController->insertarCohete();
+                break;
+            case "borrarcohete":
+                $cohetesController->borrarCohete($partesURL[1]);
+                break;
+            case "editarcohete":
+                $cohetesController->editarCohete($partesURL[1]);
+                break;
+            case "updatecohete":
+                $cohetesController->updateCohete($partesURL[1]);
+                break;
+            case "vercohete":
+                $cohetesController->getCohete($partesURL[1]);
+                break;
+            case "sortcohetes":
+                $cohetesController->getSortCohetes();
+                break;
+            case "empresas":
+                $empresasController->verEmpresas();
+                break;
+            case "verempresa":
+                $empresasController->verEmpresa($partesURL[1]);
+                break;
+            case "editarempresa":
+                $empresasController->editarEmpresa($partesURL[1]);
+                break;
+            case "updateempresa":
+                $empresasController->updateEmpresa($partesURL[1]);
+                break;
+            case "insertarempresa":
+                $empresasController->insertarEmpresa();
+                break;
+            case "borrarempresa":
+                $empresasController->borrarEmpresa($partesURL[1]);
+                break;
+            default:
+                $index->displayIndex();
+                break;
+        }
+    }   
+}
 ?>
