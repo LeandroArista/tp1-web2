@@ -9,7 +9,7 @@ html,body{
 }
 
 main {
-  
+  flex:1;
   width: 80%;
   min-height: auto;
 }
@@ -22,10 +22,10 @@ main {
 
 footer {
   height: auto;
-  bottom: 0;
   width: 100%;
   align-content: center;
   position:relative;
+  bottom: 0;
 }
 
 #logo {

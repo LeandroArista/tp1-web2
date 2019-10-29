@@ -10,8 +10,7 @@
                                         <a class="li-ic"><i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-lg"> </i></a>
                                         <a class="ins-ic"><i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-lg"> </i></a>
                                         <a class="pin-ic"><i class="fab fa-pinterest fa-lg white-text fa-lg"> </i></a>
-                                        </div>
-                                        
+                                        </div>         
                                 </div>
                                 <div class="footer-copyright flex-center font-weight-bold  col-md-12 py-1">
                                                 <span> &copy;SpaceRocket</span>
