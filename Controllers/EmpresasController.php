@@ -51,13 +51,18 @@ class EmpresasController{
 
   public function editarEmpresa($id_empresa){
     $empresa=$this->getEmpresa($id_empresa);
-    $empresa->fecha_fundacion=date('Y-m-d', strtotime($empresa->fecha_fundacion));
-    $this->view->editarEmpresa($empresa);
+    if($empresa!=null){
+      $empresa->fecha_fundacion=date('Y-m-d', strtotime($empresa->fecha_fundacion));
+      $this->view->editarEmpresa($empresa);
+    }
   }
 
   public function borrarEmpresa($id_empresa){
-    $this->CohetesModel->borrarCohetes($id_empresa);
-    $this->model->borrarEmpresa($id_empresa);
+    $empresa=$this->getEmpresa($id_empresa);
+    if($empresa!=null){
+      $this->CohetesModel->borrarCohetes($id_empresa);
+      $this->model->borrarEmpresa($id_empresa);
+    }
     header("Location:".BASE_URL."empresas");
   }
 }

@@ -20,21 +20,18 @@ class LoginController {
         $nombre = $_POST['nombre'];
         $clave = $_POST['clave'];
         $user = $this->controller->getByNombreUsuario($nombre);
-        
-        $result= password_verify($clave, $user->clave);
-        echo "$result";
-        // encontró un user con el nombre que mandó, y tiene la misma contraseña
-        if (!empty($user) && password_verify($clave, $user->clave)) {
-            
-            // INICIO LA SESSION Y LOGUEO AL USUARIO
-            session_start();
-            $_SESSION['id_usuario'] = $user->id_usuario;
-            $_SESSION['nombre'] = $user->nombre;
-
-            header('Location:'."empresas");
-        } else {
-            $this->view->showLogin("Login incorrecto");
-        }
+        if (!empty($user)){ 
+            $result= password_verify($clave, $user->clave);
+            if (password_verify($clave, $user->clave)) {
+                session_start();
+                $_SESSION['id_usuario'] = $user->id_usuario;
+                $_SESSION['nombre'] = $user->nombre;
+                header('Location:'.BASE_URL);
+            } else {
+                $this->view->showLogin("Contraseña incorrecta");
+            }
+        }else   
+            $this->view->showLogin("Usuario invalido");
     }
     public function saveRegister(){
         $this->controller->insertarUsuario();
