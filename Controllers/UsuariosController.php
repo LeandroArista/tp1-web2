@@ -1,6 +1,5 @@
 <?php
   require_once "./Models/UsuariosModel.php";
-  require_once "./Views/UsuariosView.php";
 
   class UsuariosController{
     private $model;
