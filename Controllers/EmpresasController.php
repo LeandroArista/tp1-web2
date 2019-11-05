@@ -39,29 +39,37 @@ class EmpresasController{
   }
 
   public function insertarEmpresa(){
-    $fecha = date('Y-m-d', strtotime($_POST['fecha_fundacion']));
-    $this->model->insertarEmpresa($_POST['nombre'],$_POST['propietario'],$_POST['pais'],$fecha);
+    if ($this->login->checkLogin()){
+      $fecha = date('Y-m-d', strtotime($_POST['fecha_fundacion']));
+      $this->model->insertarEmpresa($_POST['nombre'],$_POST['propietario'],$_POST['pais'],$fecha);
+    }
     header("Location:".BASE_URL);
   }
   public function updateEmpresa($id_empresa){
-    $fecha = date('Y-m-d', strtotime($_POST['fecha_fundacion']));
-    $this->model->editarEmpresa($id_empresa,$_POST['nombre'],$_POST['propietario'],$_POST['pais'],$fecha);
+    if ($this->login->checkLogin()){  
+      $fecha = date('Y-m-d', strtotime($_POST['fecha_fundacion']));
+      $this->model->editarEmpresa($id_empresa,$_POST['nombre'],$_POST['propietario'],$_POST['pais'],$fecha);
+    }
     header("Location:".BASE_URL."empresas");
   }
 
   public function editarEmpresa($id_empresa){
     $empresa=$this->getEmpresa($id_empresa);
     if($empresa!=null){
-      $empresa->fecha_fundacion=date('Y-m-d', strtotime($empresa->fecha_fundacion));
-      $this->view->editarEmpresa($empresa);
+      if ($this->login->checkLogin()){
+        $empresa->fecha_fundacion=date('Y-m-d', strtotime($empresa->fecha_fundacion));
+        $this->view->editarEmpresa($empresa);
+      }
     }
   }
 
   public function borrarEmpresa($id_empresa){
     $empresa=$this->getEmpresa($id_empresa);
     if($empresa!=null){
-      $this->CohetesModel->borrarCohetes($id_empresa);
-      $this->model->borrarEmpresa($id_empresa);
+      if ($this->login->checkLogin()){
+        $this->CohetesModel->borrarCohetes($id_empresa);
+        $this->model->borrarEmpresa($id_empresa);
+      }
     }
     header("Location:".BASE_URL."empresas");
   }

@@ -57,16 +57,20 @@ class CohetesController{
   public function editarCohete($id_cohete){
     $cohete=$this->getCoheteinfo($id_cohete);
     if($cohete!=null){
-      $cohete->fecha_creacion=date('Y-m-d', strtotime($cohete->fecha_creacion));
-      $empresas=$this->empresasController->getEmpresas();
-      $this->view->editarCohete($cohete,$empresas);
+      if ($this->login->checkLogin()){
+        $cohete->fecha_creacion=date('Y-m-d', strtotime($cohete->fecha_creacion));
+        $empresas=$this->empresasController->getEmpresas();
+        $this->view->editarCohete($cohete,$empresas);
+      }
     }
   }
 
   public function borrarCohete($id_cohete){
     $cohete=$this->getCoheteinfo($id_cohete);
     if($cohete!=null){
-      $this->model->borrarCohete($id_cohete);
+      if ($this->login->checkLogin()){
+        $this->model->borrarCohete($id_cohete);
+      }
     }
     header("Location:".BASE_URL."cohetes");
   }
@@ -74,7 +78,9 @@ class CohetesController{
   public function borrarCohetes($id_empresa){
     $empresa=$this->empresasController->getEmpresa($id_empresa);
     if($empresa!=null)
-      $this->model->borrarCohetes($id_empresa);
+      if ($this->login->checkLogin()){
+        $this->model->borrarCohetes($id_empresa);
+      }
     header("Location:".BASE_URL."cohetes");
   }
 }
