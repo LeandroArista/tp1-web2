@@ -35,7 +35,8 @@ class LoginController {
     }
     public function saveRegister(){
         $this->controller->insertarUsuario();
-        header('Location:'.LOGIN_URL);
+        $this->verifyUser();
+        header('Location:'.BASE_URL);
     }
 
     public function register(){
