@@ -6,7 +6,8 @@
     private $view;
 
     public function __construct(){
-      $this->model = new UsuariosModel();      
+      $this->model = new UsuariosModel(); 
+      $this->view = new UsuariosView();       
     }
 
     public function getUsuarios(){
@@ -24,18 +25,25 @@
       return $usuario;
     }
 
-    private function setAdministrador($value){
+    public function isAdmin($id_usuario){
+      $usuario=$this->getUsuario($id_usuario);
+      if($usuario!=null && $usuario->admin == true)
+        return true;
+      return false;
+    }
+
+    private function setAdministrador($id_usuario,$value){
       $usuario= $this->model->getUsuario($id_usuario);
-      if($usuario!=null)
+      if($usuario!=null && $this->isAdmin($id_usuario))
         $this->model->editarUsuario($id_usuario,$usuario->nombre,$usuario->mail,$usuario->clave,$value);
     }
 
     public function setAdmin(){
-      $this->setAdministrador(true);
+      $this->setAdministrador($_POST['id_usuario'],true);
     }
 
     public function unsetAdmin(){
-      $this->setAdministrador(false);
+      $this->setAdministrador($_POST['id_usuario'],false);
     }
 
     public function insertarUsuario(){
@@ -51,6 +59,8 @@
     }
 
     public function borrarUsuario($id_usuario){
-      $this->model->borrarUsuario($id_usuario);
+      $usuario= $this->model->getUsuario($id_usuario);
+      if($usuario!=null && $this->isAdmin($id_usuario))
+        $this->model->borrarUsuario($id_usuario);
     }
   }

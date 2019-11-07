@@ -58,6 +58,25 @@ class LoginController {
         }
       }    
 
+      public function checkAdmin() {
+        if ($this->checkLogin()){
+            return $user=$this->comtroller->isAdmin($_SESSION['id_usuario']);
+        }
+        return false;
+      }    
+
+      public function forgedPassword(){
+           $this->view->displayForgedPassword();           
+      }
+
+      public function newPassword(){
+        $user=$this->controller->getUsuario($_POST['id_usuario']);
+        if ($user!=null){
+            $this->view->displayPassword($user);
+          }
+      }
+
+
     public function logout() {
         session_start();
         session_destroy();

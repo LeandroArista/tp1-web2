@@ -22,6 +22,8 @@
 
         <button type="submit" class="btn btn-primary">Ingresar</button>
     </form>
+    <a href="newpassword">Olvide mi contraseña</a>
+
 </div>
 </section>
 {include file="footer.tpl"}
