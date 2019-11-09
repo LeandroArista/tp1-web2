@@ -38,19 +38,22 @@
         {/foreach}
       </table>
       {if $logged }
-      <form action="insertarcohete"  class="form-dark form-group form-control-lg m-4" method="post">
+      <form action="insertarcohete"  class="form-dark form-group form-control-lg m-4" method="post" enctype="multipart/form-data">
         <label>Insertar Cohete</label>
         <input type="text" class="form-control m-1" name="nombre" placeholder="Nombre">
         <input type="date" class="form-control m-1" name="fecha_creacion" placeholder="Fecha de Creacion">
         <input type="text" class="form-control m-1" name="altura" placeholder="Altura">
         <input type="text" class="form-control m-1" name="diametro" placeholder="Diametro">
         <input type="text" class="form-control m-1" name="masa" placeholder="Masa">
+        
         <select class="form-control m-1" name="id_empresa">
           <option selected>Seleccione Empresa ...</option>
           {foreach from=$lista_empresas item=empresa}
             <option value="{$empresa->id_empresa}">{$empresa->nombre}</option>
           {/foreach}
         </select>
+        <label class="form-control m-1" >Selecciona Imagen/es: 
+        <input type="file"class=" m-1"   name="imagen-cohete" id="imageToUpload" multiple></label>
         <input type="submit" class="btn btn-primary" value="Insertar">
       </form>
       {/if}

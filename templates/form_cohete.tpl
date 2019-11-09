@@ -1,7 +1,7 @@
 {include file="header.tpl" }
 <section>
         <h1>Editar Cohete</h1>
-        <form action="updatecohete/{$Cohete->id_cohete}" class="form-dark form-group form-control-lg m-2" method="post">
+        <form action="updatecohete/{$Cohete->id_cohete}" class="form-dark form-group form-control-lg m-2" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nombre">Empresa</label>
                 <input type="text" class="form-control" name="nombre" id="nombre" value="{$Cohete->nombre}">
@@ -34,6 +34,8 @@
                 {/foreach}
                 </select>
             </div>
+            <label class="form-control m-1" >Selecciona Imagen/es: 
+            <input type="file"class=" m-1"   name="imagen-cohete" id="imageToUpload" multiple></label>
             <input type="submit" class="btn btn-primary m-2" value="Guardar">
             <a role="button" class="btn btn-primary m-2" href='borrarcohete/{$Cohete->id_cohete}'>Borrar</a>
         </form>
