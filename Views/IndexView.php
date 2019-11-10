@@ -14,6 +14,8 @@ class IndexView{
     $smarty->assign('titulo','SpaceRocket');
     $smarty->assign('BASE_URL',BASE_URL);
     $isLogged = $this->login->checkLogin();
+    $isadmin = $this->login->checkAdmin();
+    $smarty->assign('admin',$isadmin);
     $smarty->assign('logged',$isLogged);
     $smarty->display('templates/index.tpl');
   }

@@ -21,28 +21,22 @@ class CohetesController{
   }
 
   public function getCohetes(){
-    $isLogged = $this->login->checkLogin();
-    $isadmin =$this->login->checkAdmin();
     $cohetes=$this->model->getCohetes();
     $empresas=$this->empresasController->getEmpresas();
-    $this->view->displayCohetes($cohetes,$isLogged,$empresas,false,$isadmin);
+    $this->view->displayCohetes($cohetes,$empresas,false);
   }
 
   public function getSortCohetes(){
-    $isLogged = $this->login->checkLogin();
-    $isadmin =$this->login->checkAdmin();
     $cohetes=$this->model->getSortCohetes();
     $empresas=$this->empresasController->getEmpresas();
-    $this->view->displayCohetes($cohetes,$isLogged,$empresas,true,$isadmin);
+    $this->view->displayCohetes($cohetes,$empresas,true);
     
   }
 
   public function getCohete($id_cohete){
-    $isLogged = $this->login->checkLogin();
-    $isadmin =$this->login->checkAdmin();
     $cohete=$this->model->getCohete($id_cohete);
     $images=$this->image->getImagenes($id_cohete);
-    $this->view->displayCohete($cohete,$isLogged,$images,$isadmin);
+    $this->view->displayCohete($cohete,$images);
   }
   public function getCoheteinfo($id_cohete){
     return $this->model->getCohete($id_cohete);
@@ -59,7 +53,6 @@ class CohetesController{
   }
 
   public function updateCohete($id_cohete){
-
     $fecha = date('Y-m-d', strtotime($_POST['fecha_creacion']));
     $this->model->editarCohete($id_cohete,$_POST['nombre'],$fecha,$_POST['altura'],$_POST['diametro'],$_POST['masa'],$_POST['id_empresa']);
     $this->image->insertarImagen($id_cohete);
@@ -77,7 +70,7 @@ class CohetesController{
         $cohete->fecha_creacion=date('Y-m-d', strtotime($cohete->fecha_creacion));
         $empresas=$this->empresasController->getEmpresas();
         $images=$this->image->getImagenes($id_cohete);
-        $this->view->editarCohete($cohete,$empresas,$images,$this->login->checkAdmin());
+        $this->view->editarCohete($cohete,$empresas,$images);
       }
     }
   }

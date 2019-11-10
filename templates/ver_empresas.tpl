@@ -11,7 +11,7 @@
         <tr>
           <td>{$empresa->id_empresa}</td>
           <td>{$empresa->nombre}</td>
-          {if $logged } 
+          {if $logged && $admin } 
             <td>
             <a href='verempresa/{$empresa->id_empresa}' class="view"><i class="far fa-eye"></i></a>
             <a href='editarempresa/{$empresa->id_empresa}' class="edit"><i class="far fa-edit"></i></a>
@@ -23,7 +23,7 @@
         </tr>
       {/foreach}
     </table>
-    {if $logged }
+    {if $logged && $admin}
       <form action="insertarempresa" class="form-dark form-group form-control-lg m-4" method="post">
         <label>Insertar Empresa</label>
         <input type="text" class="form-control m-1" name="nombre" placeholder="Nombre">

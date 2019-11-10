@@ -7,7 +7,7 @@
         <th>Propietario</th>
         <th>Pais</th>
         <th>Fecha Fundacion</th>
-        {if $logged }
+        {if $logged && $admin }
           <th></th>
         {/if}
       </tr>
@@ -18,7 +18,7 @@
           <td>{$empresa->propietario}</td>
           <td>{$empresa->pais}</td>
           <td>{$empresa->fecha_fundacion}</td> 
-          {if $logged}
+          {if $logged && $admin}
              <td>
              <a href='editarempresa/{$empresa->id_empresa}' class="edit"><i class="far fa-edit"></i></a>
              <a href='borrarempresa/{$empresa->id_empresa}'class="delete"><i class="far fa-trash-alt"></i></a>

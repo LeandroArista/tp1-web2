@@ -1,13 +1,14 @@
 <?php
 require_once('libs/Smarty.class.php');
+require_once("./Controllers/LoginController.php");
 
 class CohetesView{
 
   function __construct(){
-
+    $this->login = new LoginController();
   }
 
-  public function displayCohetes($cohetes,$isLogged,$empresas,$sort,$isadmin){
+  public function displayCohetes($cohetes,$empresas,$sort){
     $smarty= new Smarty();
     $smarty->assign('SelMenu', "Cohetes");
     $smarty->assign('MENU', MENU);
@@ -16,12 +17,14 @@ class CohetesView{
     $smarty->assign('BASE_URL',BASE_URL);
     $smarty->assign('lista_cohetes',$cohetes);
     $smarty->assign('lista_empresas',$empresas);
-    $smarty->assign('logged',$isLogged);
+    $isLogged = $this->login->checkLogin();
+    $isadmin = $this->login->checkAdmin();
     $smarty->assign('admin',$isadmin);
+    $smarty->assign('logged',$isLogged);
     $smarty->display('templates/ver_cohetes.tpl');
   }
 
-  public function displayCohete($cohete,$isLogged,$images,$isadmin){
+  public function displayCohete($cohete,$images){
     $smarty= new Smarty();
     $smarty->assign('SelMenu', "Cohetes");
     $smarty->assign('MENU', MENU);
@@ -33,12 +36,14 @@ class CohetesView{
       $smarty->assign('SelImg',0);
     $smarty->assign('imagenes',$images);
     $smarty->assign('cohete',$cohete);
-    $smarty->assign('logged',$isLogged);
+    $isLogged = $this->login->checkLogin();
+    $isadmin = $this->login->checkAdmin();
     $smarty->assign('admin',$isadmin);
+    $smarty->assign('logged',$isLogged);
     $smarty->display('templates/ver_cohete.tpl');
   }
 
-  public function editarCohete($cohete,$empresas,$images,$isadmin){
+  public function editarCohete($cohete,$empresas,$images){
     $smarty= new Smarty();
     $smarty->assign('SelMenu', "Cohetes");
     $smarty->assign('MENU', MENU);
@@ -48,7 +53,10 @@ class CohetesView{
     $smarty->assign('Cohete',$cohete);
     $smarty->assign('lista_imagenes',$images);
     $smarty->assign('lista_empresas',$empresas);
+    $isLogged = $this->login->checkLogin();
+    $isadmin = $this->login->checkAdmin();
     $smarty->assign('admin',$isadmin);
+    $smarty->assign('logged',$isLogged);
     $smarty->display('templates/form_cohete.tpl');
   }
 }

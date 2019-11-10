@@ -25,7 +25,7 @@
                 <td>{$empresa->nombre}</td>
               {/if}
             {/foreach}
-            {if $logged } 
+            {if $logged && $admin} 
               <td>
               <a href='vercohete/{$cohete->id_cohete}' class="view"><i class="far fa-eye"></i></a>
               <a href='editarcohete/{$cohete->id_cohete}' class="edit"><i class="far fa-edit"></i></a>

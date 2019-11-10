@@ -14,20 +14,19 @@
           <td>{$usuario->id_usuario}</td>
           <td>{$usuario->nombre}</td>
           <td>{$usuario->mail}</td>
-          {if $usuario->amin == true}
-                <td><i class="fas fa-user-tie"></i></td>
+          {if $usuario->administrador == true}
+                <td><i class="fas fa-user-tie fa-2x"></i></td>
           {else}
-                <td><i class="fas fa-user"></i></td>
+                <td><i class="fas fa-user fa-2x"></i></td>
           {/if}
-          <td>{$usuario->admin}</td>
           {if $logged && $admin} 
             <td>
-                {if $usuario->admin == false}
-                    <a href='setadmin/{$usuario->id_usuario}'><i class="fas fa-user-plus"></i></a>
+                {if $usuario->administrador == false}
+                    <a href='setadmin/{$usuario->id_usuario}' class="view"><i class="fas fa-user-plus fa-2x "></i></a>
                 {else}
-                    <a href='unsetadmin/{$usuario->id_usuario}'><i class="fas fa-user-minus"></i></a>
+                    <a href='unsetadmin/{$usuario->id_usuario}' class="delete"><i class="fas fa-user-minus fa-2x"></i></a>
                 {/if}
-                <a href='borrarusuario/{$usuario->id_usuario}'class="delete"><i class="far fa-trash-alt"></i></a>
+                <a href='borrarusuario/{$usuario->id_usuario}'class="delete"><i class="far fa-trash-alt fa-2x"></i></a>
             </td>
           {/if}
         </tr>

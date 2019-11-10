@@ -14,7 +14,8 @@ class LoginView {
         $smarty->assign('SelMenu', "Login");
         $smarty->assign('MENU', MENU);
         $smarty->assign('BASE_URL',BASE_URL);
-        $smarty->assign('logged',null);
+        $smarty->assign('logged',false);
+        $smarty->assign('admin',false);
         $smarty->assign('titulo','IniciarSesión');
         $smarty->assign('error', $error);
         $smarty->display('templates/ver_login.tpl');
@@ -25,7 +26,8 @@ class LoginView {
         $smarty->assign('SelMenu', "Register");
         $smarty->assign('MENU', MENU);
         $smarty->assign('BASE_URL',BASE_URL);
-        $smarty->assign('logged',null);
+        $smarty->assign('logged',false);
+        $smarty->assign('admin',false);
         $smarty->assign('titulo','Registrarse');
         $smarty->assign('error',$error);
         $smarty->display('templates/ver_register.tpl');
@@ -35,7 +37,8 @@ class LoginView {
         $smarty->assign('SelMenu', "Login");
         $smarty->assign('MENU', MENU);
         $smarty->assign('BASE_URL',BASE_URL);
-        $smarty->assign('logged',null);
+        $smarty->assign('logged',false);
+        $smarty->assign('admin',false);
         $smarty->assign('usuario',$usuario);
         $smarty->assign('titulo','Cambio Contraseña');
         $smarty->assign('error',$error);
@@ -46,7 +49,8 @@ class LoginView {
         $smarty->assign('SelMenu', "Login");
         $smarty->assign('MENU', MENU);
         $smarty->assign('BASE_URL',BASE_URL);
-        $smarty->assign('logged',null);
+        $smarty->assign('logged',false);
+        $smarty->assign('admin',false);
         $smarty->assign('titulo','Contraseña perdida');
         $smarty->assign('error',$error);
         $smarty->display('templates/forgedpassword.tpl');

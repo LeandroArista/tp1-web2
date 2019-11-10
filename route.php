@@ -2,6 +2,7 @@
 require_once "Controllers/EmpresasController.php";
 require_once "Controllers/CohetesController.php";
 require_once "Controllers/LoginController.php";
+require_once "Controllers/UsuariosController.php";
 require_once "Views/IndexView.php";
 
 
@@ -9,12 +10,12 @@ define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"]
 define("LOGIN_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
 define("REGISTER_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/register');
 define("LOGOUT_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
-define("MENU",Array('Home'=>'home','Empresas'=>'empresas','Cohetes'=>'cohetes','Logout'=>'logout','Login'=>'login','Register'=>'register'));
+define("MENU",Array('Usuarios'=>'usuarios','Home'=>'home','Empresas'=>'empresas','Cohetes'=>'cohetes','Logout'=>'logout','Login'=>'login','Register'=>'register'));
 
 $empresasController = new EmpresasController();
 $cohetesController = new CohetesController();
 $loginController = new LoginController();
-
+$usuariosController = new usuariosController();
 $index = new IndexView();
 
 $action = $_GET['action'];
@@ -27,6 +28,22 @@ if($action == '') {
             case "home":
                 $index->displayIndex($loginController->checkLogin());
             break;
+            case "usuarios":
+                if ($loginController->checkAdmin())
+                $usuariosController->getUsuarios();
+            break;
+            case "unsetadmin":
+                if ($loginController->checkAdmin())
+                $usuariosController->unsetAdmin($partesURL[1]);
+                break;
+            case "setadmin":
+                if ($loginController->checkAdmin())
+                $usuariosController->setAdmin($partesURL[1]);
+                break;
+            case "borrarusuario":
+                if ($loginController->checkAdmin())
+                    $usuariosController->borrarUsuario($partesURL[1]);
+                break;
             case "saveregister":
                 $loginController->saveRegister();
                 break;

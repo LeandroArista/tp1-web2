@@ -38,7 +38,10 @@
               <ul class="nav navbar-nav align-self-center justify-content-end">
                 {foreach from= $MENU key=k item=i}
                   {if !(!$logged && $k=="Logout") && !($logged && ($k == "Login" || $k == "Register"))}
-                    <li class="nav-item{if $k==$SelMenu} active{/if}"><a class="nav-link" href="{$i}">{$k}</a></li>
+                    
+                      <li class="nav-item{if $k==$SelMenu} active{/if}"><a class="nav-link" href="{$i}">{$k}</a></li>
+                    
+                    
                   {/if}
                  {/foreach}
               </ul>

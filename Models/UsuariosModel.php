@@ -26,14 +26,21 @@ class UsuariosModel {
     return $usuario;
   }
 
-  public function insertarUsuario($nombre,$mail,$clave) {
-    $query = $this->db->prepare("INSERT INTO usuarios(nombre,mail,clave) VALUES(?,?,?)");
-    $query->execute(array($nombre,$mail,$clave));
+  public function insertarUsuario($nombre,$mail,$clave,$administrador) {
+    $query = $this->db->prepare("INSERT INTO usuarios(nombre,mail,clave,administrador) VALUES(?,?,?,?)");
+    $query->execute(array($nombre,$mail,$clave,$administrador));
   }
 
-  public function editarUsuario($id_usuario,$nombre,$mail,$clave) {
-    $query = $this->db->prepare("UPDATE usuarios SET nombre = :nombre, mail = :mail ,clave = :clave WHERE id_usuario = :id_usuario");
-    $query->execute(array('id_usuario'=>$id_usuario,'nombre'=>$nombre,'$mail'=>$mail,'clave'=>$clave));
+  public function editarUsuario($id_usuario,$nombre,$mail,$clave,$administrador) {
+    $sql = "UPDATE usuarios SET ".
+    "nombre=:nombre,".
+    "mail=:mail,".
+    "clave=:clave,".
+    "administrador=:administrador ".
+    "WHERE id_usuario=:id_usuario";
+    $query = $this->db->prepare($sql);
+    $array=array(':nombre'=>$nombre,':mail'=>$mail,':clave'=>$clave,':administrador'=>$administrador,':id_usuario'=>$id_usuario);
+    $query->execute($array);
   }
 
   public function borrarUsuario($id_usuario) {

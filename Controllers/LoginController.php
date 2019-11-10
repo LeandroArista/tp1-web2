@@ -1,15 +1,15 @@
 <?php
 include_once('./views/LoginView.php');
-include_once('./Controllers/UsuariosController.php');
+include_once('./Models/UsuariosModel.php');
 class LoginController {
 
     private $view;
    
-    private $controller;
+    private $model;
 
     public function __construct() {
         $this->view = new LoginView();
-        $this->controller= new UsuariosController;
+        $this->model= new UsuariosModel;
     }
 
     public function showLogin() {
@@ -19,7 +19,7 @@ class LoginController {
     public function verifyUser() {
         $nombre = $_POST['nombre'];
         $clave = $_POST['clave'];
-        $user = $this->controller->getByNombreUsuario($nombre);
+        $user = $this->model->getByNombreUsuario($nombre);
         if (!empty($user)){ 
             $result= password_verify($clave, $user->clave);
             if (password_verify($clave, $user->clave)) {
@@ -34,7 +34,8 @@ class LoginController {
             $this->view->showLogin("Usuario invalido");
     }
     public function saveRegister(){
-        $this->controller->insertarUsuario();
+        $clave=password_hash($_POST['clave'],PASSWORD_DEFAULT );
+        $this->model->insertarUsuario($_POST['nombre'],$_POST['mail'],$clave,false);
         $this->verifyUser();
         header('Location:'.BASE_URL);
     }
@@ -62,8 +63,14 @@ class LoginController {
         if ($this->checkLogin()){
             if(!isset($_SESSION)){
                 session_start();
+                return false;
+            }else{
+                $usuario=$this->model->getUsuario($_SESSION['id_usuario']);
+                if($usuario!=null && $usuario->administrador == true){
+                    return true;
+                }
+                return false;
             }
-            return $this->controller->isAdmin($_SESSION['id_usuario']);
         }
         return false;
       }    
@@ -73,7 +80,7 @@ class LoginController {
       }
 
       public function newPassword(){
-        $user=$this->controller->getUsuario($_POST['id_usuario']);
+        $user=$this->model->getUsuario($_POST['id_usuario']);
         if ($user!=null){
             $this->view->displayPassword($user);
           }

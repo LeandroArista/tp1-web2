@@ -29,7 +29,7 @@
       <li class="list-group-item d-flex justify-content-between align-items-center"><b>Diamertro:</b><span class="badge bg-info text-white">{$cohete->diametro}</span></li>
       <li class="list-group-item d-flex justify-content-between align-items-center"><b>Masa:</b><span class="badge bg-info text-white">{$cohete->masa}</span></li>
       <li class="list-group-item d-flex justify-content-between align-items-center"><b>Empresa:</b> <span class="badge bg-info text-white">{$cohete->empresa}</span></li>
-      {if $logged } 
+      {if $logged && $admin} 
         <li class="list-group-item d-flex justify-content-between align-items-center"><span class="mx-auto row">
         <a href='editarcohete/{$cohete->id_cohete}' class="edit m-2"><i class="far fa-edit fa-2x"></i></a> 
         <a href='borrarcohete/{$cohete->id_cohete}'class="delete m-2"><i class="far fa-trash-alt fa-2x "></i></a>
