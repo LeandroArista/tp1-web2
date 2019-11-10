@@ -98,7 +98,10 @@ content-element-image {
   height: auto;
 }
 
-
+.big-checkbox {
+  width: 40px; 
+  height: 40px;
+}
 
 @media (max-width: 576px) {
   main {
@@ -220,13 +223,13 @@ content-element-image {
   cursor: pointer;
 }
 
-.table.table td a.edit:hover{
+a.edit:hover{
   color:orange;
 }
-.table.table td a.delete:hover{
+a.delete:hover{
   color:red;
 }
-.table.table td a.view:hover{
+a.view:hover{
   color:green;
 }
 

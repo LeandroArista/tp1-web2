@@ -22,24 +22,27 @@ class CohetesController{
 
   public function getCohetes(){
     $isLogged = $this->login->checkLogin();
+    $isadmin =$this->login->checkAdmin();
     $cohetes=$this->model->getCohetes();
     $empresas=$this->empresasController->getEmpresas();
-    $this->view->displayCohetes($cohetes,$isLogged,$empresas,false);
+    $this->view->displayCohetes($cohetes,$isLogged,$empresas,false,$isadmin);
   }
 
   public function getSortCohetes(){
     $isLogged = $this->login->checkLogin();
+    $isadmin =$this->login->checkAdmin();
     $cohetes=$this->model->getSortCohetes();
     $empresas=$this->empresasController->getEmpresas();
-    $this->view->displayCohetes($cohetes,$isLogged,$empresas,true);
+    $this->view->displayCohetes($cohetes,$isLogged,$empresas,true,$isadmin);
     
   }
 
   public function getCohete($id_cohete){
     $isLogged = $this->login->checkLogin();
+    $isadmin =$this->login->checkAdmin();
     $cohete=$this->model->getCohete($id_cohete);
     $images=$this->image->getImagenes($id_cohete);
-    $this->view->displayCohete($cohete,$isLogged,$images);
+    $this->view->displayCohete($cohete,$isLogged,$images,$isadmin);
   }
   public function getCoheteinfo($id_cohete){
     return $this->model->getCohete($id_cohete);
@@ -56,18 +59,25 @@ class CohetesController{
   }
 
   public function updateCohete($id_cohete){
+
     $fecha = date('Y-m-d', strtotime($_POST['fecha_creacion']));
     $this->model->editarCohete($id_cohete,$_POST['nombre'],$fecha,$_POST['altura'],$_POST['diametro'],$_POST['masa'],$_POST['id_empresa']);
+    $this->image->insertarImagen($id_cohete);
+    $imagenes=$_POST['images'];
+    foreach($imagenes as $imagen){
+      $this->image->removerImagen($imagen);
+    }
     header("Location:".BASE_URL."cohetes");
   }
 
   public function editarCohete($id_cohete){
     $cohete=$this->getCoheteinfo($id_cohete);
     if($cohete!=null){
-      if ($this->login->checkLogin()){
+      if ($this->login->checkLogin() &&  $this->login->checkAdmin()){
         $cohete->fecha_creacion=date('Y-m-d', strtotime($cohete->fecha_creacion));
         $empresas=$this->empresasController->getEmpresas();
-        $this->view->editarCohete($cohete,$empresas);
+        $images=$this->image->getImagenes($id_cohete);
+        $this->view->editarCohete($cohete,$empresas,$images,$this->login->checkAdmin());
       }
     }
   }
@@ -75,7 +85,7 @@ class CohetesController{
   public function borrarCohete($id_cohete){
     $cohete=$this->getCoheteinfo($id_cohete);
     if($cohete!=null){
-      if ($this->login->checkLogin()){
+      if ($this->login->checkLogin() &&  $this->login->checkAdmin()){
         $this->model->borrarCohete($id_cohete);
         $this->image->removerImagenes($id_cohete);
       }
@@ -86,7 +96,7 @@ class CohetesController{
   public function borrarCohetes($id_empresa){
     $empresa=$this->empresasController->getEmpresa($id_empresa);
     if($empresa!=null)
-      if ($this->login->checkLogin()){
+      if ($this->login->checkLogin() &&  $this->login->checkAdmin()){
         $cohetes=$this->model->getCohetesByEmpresa($id_empresa);
         foreach($cohetes as $cohete){
           $this->image->removerImagenes($cohete->id_cohete);

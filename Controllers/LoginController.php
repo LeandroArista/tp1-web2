@@ -60,7 +60,10 @@ class LoginController {
 
       public function checkAdmin() {
         if ($this->checkLogin()){
-            return $user=$this->comtroller->isAdmin($_SESSION['id_usuario']);
+            if(!isset($_SESSION)){
+                session_start();
+            }
+            return $this->controller->isAdmin($_SESSION['id_usuario']);
         }
         return false;
       }    

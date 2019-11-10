@@ -7,7 +7,7 @@ class CohetesView{
 
   }
 
-  public function displayCohetes($cohetes,$isLogged,$empresas,$sort){
+  public function displayCohetes($cohetes,$isLogged,$empresas,$sort,$isadmin){
     $smarty= new Smarty();
     $smarty->assign('SelMenu', "Cohetes");
     $smarty->assign('MENU', MENU);
@@ -17,10 +17,11 @@ class CohetesView{
     $smarty->assign('lista_cohetes',$cohetes);
     $smarty->assign('lista_empresas',$empresas);
     $smarty->assign('logged',$isLogged);
+    $smarty->assign('admin',$isadmin);
     $smarty->display('templates/ver_cohetes.tpl');
   }
 
-  public function displayCohete($cohete,$isLogged,$images){
+  public function displayCohete($cohete,$isLogged,$images,$isadmin){
     $smarty= new Smarty();
     $smarty->assign('SelMenu', "Cohetes");
     $smarty->assign('MENU', MENU);
@@ -33,10 +34,11 @@ class CohetesView{
     $smarty->assign('imagenes',$images);
     $smarty->assign('cohete',$cohete);
     $smarty->assign('logged',$isLogged);
+    $smarty->assign('admin',$isadmin);
     $smarty->display('templates/ver_cohete.tpl');
   }
 
-  public function editarCohete($cohete,$empresas){
+  public function editarCohete($cohete,$empresas,$images,$isadmin){
     $smarty= new Smarty();
     $smarty->assign('SelMenu', "Cohetes");
     $smarty->assign('MENU', MENU);
@@ -44,7 +46,9 @@ class CohetesView{
     $smarty->assign('BASE_URL',BASE_URL);
     $smarty->assign('logged',true);
     $smarty->assign('Cohete',$cohete);
+    $smarty->assign('lista_imagenes',$images);
     $smarty->assign('lista_empresas',$empresas);
+    $smarty->assign('admin',$isadmin);
     $smarty->display('templates/form_cohete.tpl');
   }
 }

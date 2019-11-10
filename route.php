@@ -4,6 +4,7 @@ require_once "Controllers/CohetesController.php";
 require_once "Controllers/LoginController.php";
 require_once "Views/IndexView.php";
 
+
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
 define("LOGIN_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
 define("REGISTER_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/register');
@@ -13,6 +14,7 @@ define("MENU",Array('Home'=>'home','Empresas'=>'empresas','Cohetes'=>'cohetes','
 $empresasController = new EmpresasController();
 $cohetesController = new CohetesController();
 $loginController = new LoginController();
+
 $index = new IndexView();
 
 $action = $_GET['action'];

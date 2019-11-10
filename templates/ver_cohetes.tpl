@@ -32,12 +32,12 @@
               <a href='borrarcohete/{$cohete->id_cohete}' class="delete"><i class="far fa-trash-alt"></i></a>
               </td>
             {else}
-              <td><a href='vercohete/{$empresa->id_empresa}' class="view"><i class="far fa-eye"></i></a></td>
+              <td><a href='vercohete/{$cohete->id_cohete}' class="view"><i class="far fa-eye"></i></a></td>
             {/if}
           </tr>
         {/foreach}
       </table>
-      {if $logged }
+      {if $logged && $admin }
       <form action="insertarcohete"  class="form-dark form-group form-control-lg m-4" method="post" enctype="multipart/form-data">
         <label>Insertar Cohete</label>
         <input type="text" class="form-control m-1" name="nombre" placeholder="Nombre">
