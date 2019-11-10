@@ -53,7 +53,7 @@
           {/foreach}
         </select>
         <label class="form-control m-1" >Selecciona Imagen/es: 
-        <input type="file"class=" m-1"   name="imagen-cohete" id="imageToUpload" multiple></label>
+        <input required type="file"class=" m-1"  name="imagen[]" id="imageToUpload" multiple></label>
         <input type="submit" class="btn btn-primary" value="Insertar">
       </form>
       {/if}

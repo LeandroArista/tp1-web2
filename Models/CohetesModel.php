@@ -27,6 +27,19 @@ class CohetesModel {
     return $cohete;
   }
 
+  public function getCoheteByName($nombre){
+    $query = $this->db->prepare("SELECT * FROM cohetes WHERE nombre = ?");
+    $query->execute(array($nombre));
+    $cohete = $query->fetch(PDO::FETCH_OBJ);
+    return $cohete;
+  }
+  public function getCohetesByEmpresa($id_empresa){
+    $query = $this->db->prepare("SELECT c.id_cohete,c.nombre,c.fecha_creacion,c.altura,c.diametro,c.masa,e.nombre AS empresa,e.propietario,e.pais FROM cohetes AS c INNER JOIN empresas AS e ON c.id_empresa=e.id_empresa WHERE e.id_empresa = ?");
+    $query->execute(array($id_empresa));
+    $cohetes = $query->fetchAll(PDO::FETCH_OBJ);
+    return $cohetes;
+  }
+
   public function insertarCohete($nombre,$fecha_creacion,$altura,$diametro,$masa,$id_empresa) {
     $query = $this->db->prepare("INSERT INTO cohetes(nombre,fecha_creacion,altura,diametro,masa,id_empresa) VALUES(?,?,?,?,?,?)");
     $query->execute(array($nombre,$fecha_creacion,$altura,$diametro,$masa,$id_empresa));

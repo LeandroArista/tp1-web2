@@ -20,13 +20,18 @@ class CohetesView{
     $smarty->display('templates/ver_cohetes.tpl');
   }
 
-  public function displayCohete($cohetes,$isLogged){
+  public function displayCohete($cohete,$isLogged,$images){
     $smarty= new Smarty();
     $smarty->assign('SelMenu', "Cohetes");
     $smarty->assign('MENU', MENU);
     $smarty->assign('titulo','Mostrar Cohete');
     $smarty->assign('BASE_URL',BASE_URL);
-    $smarty->assign('lista_cohetes',array($cohetes));
+    if ($images!=null)
+      $smarty->assign('SelImg',$images[0]);
+    else
+      $smarty->assign('SelImg',0);
+    $smarty->assign('imagenes',$images);
+    $smarty->assign('cohete',$cohete);
     $smarty->assign('logged',$isLogged);
     $smarty->display('templates/ver_cohete.tpl');
   }

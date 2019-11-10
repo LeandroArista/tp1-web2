@@ -3,18 +3,21 @@ require_once "./Models/CohetesModel.php";
 require_once "./Views/CohetesView.php";
 require_once "./Controllers/LoginController.php";
 require_once "./Controllers/EmpresasController.php";
+require_once "./Controllers/ImageController.php";
 
 class CohetesController{
   private $model;
   private $view;
   private $login;
   private $empresaController;
+  private $image;
 
   public function __construct(){
     $this->model=new CohetesModel();
     $this->view = new CohetesView();
     $this->login = new LoginController();
     $this->empresasController = new EmpresasController();
+    $this->image= new Imagecontroller();
   }
 
   public function getCohetes(){
@@ -35,8 +38,8 @@ class CohetesController{
   public function getCohete($id_cohete){
     $isLogged = $this->login->checkLogin();
     $cohete=$this->model->getCohete($id_cohete);
-    $empresas=$this->empresasController->getEmpresas();
-    $this->view->displayCohete($cohete,$isLogged,$empresas);
+    $images=$this->image->getImagenes($id_cohete);
+    $this->view->displayCohete($cohete,$isLogged,$images);
   }
   public function getCoheteinfo($id_cohete){
     return $this->model->getCohete($id_cohete);
@@ -45,6 +48,10 @@ class CohetesController{
   public function insertarCohete(){
     $fecha = date('Y-m-d', strtotime($_POST['fecha_creacion']));
     $this->model->insertarCohete($_POST['nombre'],$fecha,$_POST['altura'],$_POST['diametro'],$_POST['masa'],$_POST['id_empresa']);
+    $cohete=$this->model->getCoheteByName($_POST['nombre']);
+    if($cohete!=null){
+      $this->image->insertarImagen($cohete->id_cohete);
+    }
     header("Location:".BASE_URL."cohetes");
   }
 
@@ -70,6 +77,7 @@ class CohetesController{
     if($cohete!=null){
       if ($this->login->checkLogin()){
         $this->model->borrarCohete($id_cohete);
+        $this->image->removerImagenes($id_cohete);
       }
     }
     header("Location:".BASE_URL."cohetes");
@@ -79,9 +87,14 @@ class CohetesController{
     $empresa=$this->empresasController->getEmpresa($id_empresa);
     if($empresa!=null)
       if ($this->login->checkLogin()){
+        $cohetes=$this->model->getCohetesByEmpresa($id_empresa);
+        foreach($cohetes as $cohete){
+          $this->image->removerImagenes($cohete->id_cohete);
+        }
         $this->model->borrarCohetes($id_empresa);
       }
     header("Location:".BASE_URL."cohetes");
   }
+
 }
 ?>
