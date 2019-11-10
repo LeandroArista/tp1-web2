@@ -19,6 +19,8 @@ class CohetesView{
     $smarty->assign('lista_empresas',$empresas);
     $isLogged = $this->login->checkLogin();
     $isadmin = $this->login->checkAdmin();
+    $user=$this->login->getUserLogged();
+    $smarty->assign('user',$user);
     $smarty->assign('admin',$isadmin);
     $smarty->assign('logged',$isLogged);
     $smarty->display('templates/ver_cohetes.tpl');
@@ -38,6 +40,8 @@ class CohetesView{
     $smarty->assign('cohete',$cohete);
     $isLogged = $this->login->checkLogin();
     $isadmin = $this->login->checkAdmin();
+    $user=$this->login->getUserLogged();
+    $smarty->assign('user',$user);
     $smarty->assign('admin',$isadmin);
     $smarty->assign('logged',$isLogged);
     $smarty->display('templates/ver_cohete.tpl');
@@ -55,6 +59,8 @@ class CohetesView{
     $smarty->assign('lista_empresas',$empresas);
     $isLogged = $this->login->checkLogin();
     $isadmin = $this->login->checkAdmin();
+    $user=$this->login->getUserLogged();
+    $smarty->assign('user',$user);
     $smarty->assign('admin',$isadmin);
     $smarty->assign('logged',$isLogged);
     $smarty->display('templates/form_cohete.tpl');

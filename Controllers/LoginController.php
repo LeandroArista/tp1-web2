@@ -43,6 +43,13 @@ class LoginController {
     public function register(){
         $this->view->showRegister();
     }
+    public function getUserLogged(){
+        if (!isset($_SESSION['id_usuario'])) {
+            return null;
+        }
+        return $_SESSION['nombre'];
+
+    }
 
     public function checkLogin() {
         if(!isset($_SESSION)){

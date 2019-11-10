@@ -15,6 +15,8 @@ class UsuariosView{
     $smarty->assign('lista_usuarios',$usuarios);
     $isLogged = $this->login->checkLogin();
     $isadmin = $this->login->checkAdmin();
+    $user=$this->login->getUserLogged();
+    $smarty->assign('user',$user);
     $smarty->assign('admin',$isadmin);
     $smarty->assign('logged',$isLogged);
     $smarty->display('templates/ver_usuarios.tpl');

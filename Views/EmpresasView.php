@@ -16,6 +16,8 @@ class EmpresasView{
     $smarty->assign('lista_empresas',$empresas);
     $isLogged = $this->login->checkLogin();
     $isadmin = $this->login->checkAdmin();
+    $user=$this->login->getUserLogged();
+    $smarty->assign('user',$user);
     $smarty->assign('admin',$isadmin);
     $smarty->assign('logged',$isLogged);
     $smarty->display('templates/ver_empresas.tpl');
@@ -30,6 +32,8 @@ class EmpresasView{
     $smarty->assign('Empresa',array($empresa));
     $isLogged = $this->login->checkLogin();
     $isadmin = $this->login->checkAdmin();
+    $user=$this->login->getUserLogged();
+    $smarty->assign('user',$user);
     $smarty->assign('admin',$isadmin);
     $smarty->assign('logged',$isLogged);
     $smarty->display('templates/ver_empresa.tpl');
@@ -44,6 +48,8 @@ class EmpresasView{
     $smarty->assign('Empresa',$empresa);
     $isLogged = $this->login->checkLogin();
     $isadmin = $this->login->checkAdmin();
+    $user=$this->login->getUserLogged();
+    $smarty->assign('user',$user);
     $smarty->assign('admin',$isadmin);
     $smarty->assign('logged',$isLogged);
     $smarty->display('templates/form_empresa.tpl');

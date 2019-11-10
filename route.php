@@ -10,7 +10,7 @@ define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"]
 define("LOGIN_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
 define("REGISTER_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/register');
 define("LOGOUT_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
-define("MENU",Array('Usuarios'=>'usuarios','Home'=>'home','Empresas'=>'empresas','Cohetes'=>'cohetes','Logout'=>'logout','Login'=>'login','Register'=>'register'));
+define("MENU",Array('Home'=>'home','Usuarios'=>'usuarios','Empresas'=>'empresas','Cohetes'=>'cohetes','Logout'=>'logout','Login'=>'login','Register'=>'register'));
 
 $empresasController = new EmpresasController();
 $cohetesController = new CohetesController();
