@@ -59,8 +59,14 @@ if($action == '') {
             case "logout":
                 $loginController->logout();
             break;
+            case "forgedpassword":
+                $loginController->forgedPassword();
+                break;
             case "newpassword":
-                $loginController->forgedPassword($partesURL[1]);
+                $loginController->newPassword();
+                break;
+            case "updatepassword":
+                $loginController->updatePassword($partesURL[1]);
                 break;
             case "cohetes":
                 $cohetesController->getCohetes();

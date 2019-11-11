@@ -5,7 +5,7 @@
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">    
           {foreach from=$imagenes item=imagen}
-          <div class="carousel-item {if $SelImg != 0 && $SelImg->id_imagen == $imagen->id_imagen }active{/if}">
+          <div class="carousel-item {if !empty($SelImg) && $SelImg->id_imagen == $imagen->id_imagen }active{/if}">
             <img src="{$imagen->ruta}" class="d-block w-100" alt="{$imagen->id_imagen} imagen" >
           </div>
           {{/foreach}}

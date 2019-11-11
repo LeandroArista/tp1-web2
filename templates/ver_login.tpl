@@ -19,10 +19,12 @@
             {$error}
         </div>
         {/if}
-
-        <button type="submit" class="btn btn-primary">Ingresar</button>
+        <div class="d-flex justify-content-between align-items-center">
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+            <a href="forgedpassword" class="text-white text-align-end"><u>Olvide mi contraseña</u></a>
+        </div>
     </form>
-    <a href="newpassword">Olvide mi contraseña</a>
+
 
 </div>
 </section>
