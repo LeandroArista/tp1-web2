@@ -66,3 +66,6 @@
         <a href='cohetes' class="m-4"><i class="fas fa-arrow-left fa-2x "></i></a>
 </section>
 {include file="footer.tpl" }
+</body>
+{include file="script.tpl"}
+</html>

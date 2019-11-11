@@ -24,3 +24,6 @@
         <a href='empresas/' class="ml-2"><i class="fas fa-arrow-left fa-2x "></i></a>
 </section>
 {include file="footer.tpl"}
+</body>
+{include file="script.tpl"}
+</html>

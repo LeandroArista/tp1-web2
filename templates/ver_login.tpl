@@ -29,3 +29,6 @@
 </div>
 </section>
 {include file="footer.tpl"}
+</body>
+{include file="script.tpl"}
+</html>

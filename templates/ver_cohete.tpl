@@ -44,3 +44,6 @@
 <section class="comentarios m-4" id='cohete-{$cohete->id_cohete}'>
 </section>
 {include file="footer.tpl"}
+</body>
+{include file="script.tpl"}
+</html>
