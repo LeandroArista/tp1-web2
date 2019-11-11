@@ -23,10 +23,13 @@ class ImageController{
 			//Validamos si la ruta de destino existe, en caso de no existir la creamos
 			if(!file_exists($directorio)){
 				mkdir($directorio, 0777) or die("No se puede crear el directorio de extracción");	
-			}
-			
+            }
+            
+            $extension = explode(".", $filename);
+            $reversed = array_reverse($extension);
+            $newfilename = uniqid().'.'.$reversed[0];
 			$dir=opendir($directorio); //Abrimos el directorio de destino
-			$target_path = $directorio.'/'.uniqid().$filename; //Indicamos la ruta de destino, así como el nombre del archivo
+			$target_path = $directorio.'/'.$newfilename; //Indicamos la ruta de destino, así como el nombre del archivo
 			
 			//Movemos y validamos que el archivo se haya cargado correctamente
 			//El primer campo es el origen y el segundo el destino

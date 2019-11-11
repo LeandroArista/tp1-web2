@@ -11,14 +11,12 @@
         </div>
         <table class="table table-bordered">
         <tr class="thead-dark">
-          <th>Id Cohete</th>
           <th>Nombre</th>
           <th>Empresa</th>
           <th></th>
         </tr>
         {foreach from=$lista_cohetes item=cohete}
           <tr>
-            <td>{$cohete->id_cohete}</td> 
             <td>{$cohete->nombre}</td>  
             {foreach from=$lista_empresas item=empresa}
               {if $cohete->id_empresa == $empresa->id_empresa}

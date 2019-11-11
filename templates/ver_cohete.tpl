@@ -6,7 +6,9 @@
         <div class="carousel-inner">    
           {foreach from=$imagenes item=imagen}
           <div class="carousel-item {if !empty($SelImg) && $SelImg->id_imagen == $imagen->id_imagen }active{/if}">
-            <img src="{$imagen->ruta}" class="d-block w-100" alt="{$imagen->id_imagen} imagen" >
+            <div class="div-img">
+              <img src="{$imagen->ruta}" class="d-block w-100 h-100"  alt="imagen-{$imagen->id_imagen}" >
+            </div>
           </div>
           {{/foreach}}
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -22,7 +24,6 @@
     </div>
     <div class="col-sm-6">
       <ul class="m-0 p-0">
-      <li class="list-group-item d-flex justify-content-between align-items-center"><b>Cohete:</b><span class="badge bg-info text-white "> {$cohete->id_cohete}</span></li>
       <li class="list-group-item d-flex justify-content-between align-items-center"><b>Nombre:</b><span class="badge bg-info text-white"> {$cohete->nombre}</span></li>
       <li class="list-group-item d-flex justify-content-between align-items-center"><b>Fecha Creacion:</b><span class="badge bg-info text-white"> {$cohete->fecha_creacion}</span></li>
       <li class="list-group-item d-flex justify-content-between align-items-center"><b>Altura:</b><span class="badge bg-info text-white"> {$cohete->altura}</span></li>
@@ -39,5 +40,7 @@
     </div>
     <a href='cohetes/'><i class="fas fa-arrow-left fa-2x m-4"></i></a>
   </div>
+</section>
+<section class="comentarios m-4" id='cohete-{$cohete->id_cohete}'>
 </section>
 {include file="footer.tpl"}

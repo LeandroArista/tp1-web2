@@ -57,9 +57,10 @@ class CohetesController{
     $this->model->editarCohete($id_cohete,$_POST['nombre'],$fecha,$_POST['altura'],$_POST['diametro'],$_POST['masa'],$_POST['id_empresa']);
     $this->image->insertarImagen($id_cohete);
     $imagenes=$_POST['images'];
-    foreach($imagenes as $imagen){
-      $this->image->removerImagen($imagen);
-    }
+    if($imagenes!=null)
+      foreach($imagenes as $imagen){
+        $this->image->removerImagen($imagen);
+      }
     header("Location:".BASE_URL."cohetes");
   }
 
