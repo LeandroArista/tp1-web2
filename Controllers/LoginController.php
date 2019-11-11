@@ -51,7 +51,7 @@ class LoginController {
         if (!isset($_SESSION['id_usuario'])) {
             return null;
         }
-        return $_SESSION['nombre'];
+        return array('id_usuario'=>$_SESSION['id_usuario'],'nombre'=>$_SESSION['nombre']);
 
     }
 
@@ -91,15 +91,7 @@ class LoginController {
       }
 
       private function sendMail($mail,$clave){
-        // ini_set( 'display_errors', 1 );
-        // error_reporting( E_ALL );
-        // $from = "leandroa_07@hotmail.com";
-        // $to = "$mail";
-        // $subject = "New Password SpaceRocket";
-         $message = "Aqui esta su nueva clave: $clave por favor ingrese una clave nueva para mayor seguridad";
-        // $headers = "From:" . $from;
-        // mail($to,$subject,$message, $headers);
-        // echo "mail enviado";
+        $message = "Aqui esta su nueva clave: $clave por favor ingrese una clave nueva para mayor seguridad";
         newMail($mail,$message);
       }
 

@@ -41,9 +41,42 @@
     <a href='cohetes/'><i class="fas fa-arrow-left fa-2x m-4"></i></a>
   </div>
 </section>
-<section class="comentarios m-4" id='cohete-{$cohete->id_cohete}'>
-</section>
+<section {if $admin }class="admin"{else}{if $logged}class="logged"{else}class="user"{/if}{/if}>
+  <div class="comentarios m-4" id='cohete-{$cohete->id_cohete}'>
+    {include file="vue/coment_list.tpl"}
+    {if $logged}
+    
+    <form id="form-comentarios" class="bg-dark text-white form-inline d-flex justify-content-center align-items-center" action="insertarcomentario" method="POST">
+                <h2>Agregar Comentario</h2>
+                <div class="form-row w-100  p-2">
+                   <label for="texto" class="text-center align-middle col-sm-2 col-form-label">Comentario</label>
+                  <div class="form-group mb-2 col-sm-5 m-1">
+                    <input class="form-control w-100" type="text" name="texto" id="texto">
+                  </div>
+                  <label for="puntaje" class="text-center align-middle col-sm-1 col-form-label">Puntaje</label>
+                  <div class="form-group mb-2 col-sm-2">
+                    <select class="form-control" name="puntaje" id="puntaje">
+                      <option selected value="1">1 </option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5 max</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-1 ">
+                    <input type="submit" class="btn btn-primary mb-2" value="Insertar">
+                  </div>
+                </div>
+                <input type="text" name="id_usuario" value="{$user['id_usuario']}" class="d-none">
+                <input type="text" name="id_cohete" value="{$cohete->id_cohete}" class="d-none">
+                
+    </form>
+    {/if}
+
+  </div>
+</section {}>
 {include file="footer.tpl"}
+<script src="js/comentarios.js"></script>
 </body>
 {include file="script.tpl"}
 </html>

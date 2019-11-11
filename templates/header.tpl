@@ -41,7 +41,7 @@
                       {if $k=="Logout" && !empty($user)}
                         <li class="nav-item dropdown {if $k==$SelMenu} active{/if}">
                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {$user}
+                            {$user['nombre']}
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{$i}"> {$k}</a>

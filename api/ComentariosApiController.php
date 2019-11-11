@@ -41,8 +41,8 @@ class ComentariosApiController {
 
     public function insertarComentario($id_cohete,$id_usuario,$params = null) {
         $data = $this->getData();
-
-        $id = $this->model->insertarComentario($data->texto, $data->fecha, $data->puntaje,$id_cohete,$id_usuario);
+        $fecha = getdate();
+        $id = $this->model->insertarComentario($data->texto, $fecha, $data->puntaje,$id_cohete,$id_usuario);
         
         $tarea = $this->model->get($id);
         if ($tarea)
