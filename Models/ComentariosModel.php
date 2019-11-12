@@ -6,13 +6,6 @@ class ComentariosModel {
       $this->db = new PDO('mysql:host=localhost;'.'dbname=db_tpespecial;charset=utf8','root', '');
   }
 
-  private function CometariosCohete($id_cohete,$sql){
-    $query = $this->db->prepare($sql);
-    $query->execute(array($id_cohete));
-    $comentarios = $query->fetchAll(PDO::FETCH_OBJ);
-    return $comentarios;
-  }
-
   public function get($id_comentario){
     $query = $this->db->prepare('SELECT * FROM comentarios WHERE id_comentario = ?');
     $query->execute(array($id_comentario));
@@ -20,17 +13,24 @@ class ComentariosModel {
     return $comentario;
   }
 
-  public function getCometariosCohete($id_cohete){
+  private function ComentariosCohete($id_cohete,$sql){
+    $query = $this->db->prepare($sql);
+    $query->execute(array($id_cohete));
+    $comentarios = $query->fetchAll(PDO::FETCH_OBJ);
+    return $comentarios;
+  }
+
+  public function getComentarios($id_cohete){
     $sql='SELECT * FROM comentarios WHERE id_cohete = ?';
     return $this->CometariosCohete($id_cohete,$sql);
   }
   
-  public function getCometariosSortByPrioridad($id_cohete){
-    $sql='SELECT * FROM comentarios WHERE id_cohete = ? ORDER BY prioriodad DESC';
+  public function getComentariosByPuntaje($id_cohete){
+    $sql='SELECT * FROM comentarios WHERE id_cohete = ? ORDER BY puntaje DESC';
     return $this->CometariosCohete($id_cohete,$sql);
   }
 
-  public function getCometariosSortByFecha($id_cohete){
+  public function getComentariosByFecha($id_cohete){
     $sql='SELECT * FROM comentarios WHERE id_cohete = ? ORDER BY fecha DESC';
     return $this->CometariosCohete($id_cohete,$sql);
   }

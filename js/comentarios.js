@@ -17,25 +17,21 @@ let app = new Vue({
 /**
  * Obtiene la lista de tareas de la API y las renderiza con Vue.
  */
-function getComentarios(id_coehete) {
-    
-    let url='api/getComentariosCohete/'+id_coehete;
+function getComentarios(id_cohete) {
+    let url='api/comentarios/'+id_cohete;
+    console.log(url);
     fetch(url)
     .then(response => response.json())
-    .then(function(){
-        console.log(response);
+    .then(
         comentarios => {
-        console.log("entre2");
         app.comentarios = comentarios; 
-        let usuario=document.querySelector(".usuario").id;
-        console.log(id);
+        let id=document.querySelector(".usuario").id;
         if (id=="admin"){
             app.isadmin=true;
             app.isloged=true;
         }else if(id=="logged"){
             app.isloged=true;
         }
-    }
     })
     .catch(error => console.log(error));
     }

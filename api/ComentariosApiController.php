@@ -19,10 +19,30 @@ class ComentariosApiController {
         return json_decode($this->data);
     }
 
-    public function getCometariosCohete($params = null) {
+    public function getComentarios($params = null) {
         $id_cohete = $params[':id_cohete'];
         
-        $comentarios = $this->model->getComentariosCohete($id_cohete);        
+        $comentarios = $this->model->getComentarios($id_cohete);        
+        if ($comentarios)
+            $this->view->response($comentarios, 200);
+        else
+            $this->view->response("no existen comentarios con el id_cohete={$id_cohete}", 404);
+    } 
+
+    public function getComentariosByFecha($params = null) {
+        $id_cohete = $params[':id_cohete'];
+        
+        $comentarios = $this->model->getComentariosByFecha($id_cohete);        
+        if ($comentarios)
+            $this->view->response($comentarios, 200);
+        else
+            $this->view->response("no existen comentarios con el id_cohete={$id_cohete}", 404);
+    } 
+
+    public function getComentariosByPuntaje($params = null) {
+        $id_cohete = $params[':id_cohete'];
+        
+        $comentarios = $this->model->getComentariosByPuntaje($id_cohete);        
         if ($comentarios)
             $this->view->response($comentarios, 200);
         else
@@ -51,15 +71,4 @@ class ComentariosApiController {
 
     }
 
-    public function updateTask($params = null) {
-        $id = $params[':ID'];
-        $data = $this->getData();
-        
-        $tarea = $this->model->get($id);
-        if ($tarea) {
-            $this->model->update($id, $data->prioridad);
-            $this->view->response("La tarea fue modificada con exito.", 200);
-        } else
-            $this->view->response("La tarea con el id={$id} no existe", 404);
-    }
 }

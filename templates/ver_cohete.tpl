@@ -76,7 +76,8 @@
   </div>
 </section {}>
 {include file="footer.tpl"}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+{* <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script> *}
 <script src="js/comentarios.js"></script>
 </body>
 {include file="script.tpl"}
