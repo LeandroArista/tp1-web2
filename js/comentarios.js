@@ -1,53 +1,70 @@
 "use strict"
 
 // event listeners
-document.querySelector("#form-cometario").addEventListener('submit', addTask);
+document.querySelector("#form-comentario").addEventListener('submit', insertarComentario);
 
 // define la app Vue
 let app = new Vue({
-    el: "#template-vue-tasks",
+    el: "#template-vue-comentarios",
     data: {
-        subtitle: "Estas tareas se renderizan desde el cliente usando Vue.js",
-        tasks: [], 
-        auth: true
+        comentarios: [], 
+        isloged: false,
+        isadmin: false,
+
     }
 });
 
 /**
  * Obtiene la lista de tareas de la API y las renderiza con Vue.
  */
-function getTasks() {
-    fetch("api/tareas")
+function getComentarios(id_coehete) {
+    
+    let url='api/getComentariosCohete/'+id_coehete;
+    fetch(url)
     .then(response => response.json())
-    .then(tasks => {
-        app.tasks = tasks; // similar a $this->smarty->assign("tasks", $tasks)
+    .then(function(){
+        console.log(response);
+        comentarios => {
+        console.log("entre2");
+        app.comentarios = comentarios; 
+        let usuario=document.querySelector(".usuario").id;
+        console.log(id);
+        if (id=="admin"){
+            app.isadmin=true;
+            app.isloged=true;
+        }else if(id=="logged"){
+            app.isloged=true;
+        }
+    }
     })
     .catch(error => console.log(error));
-}
+    }
 
 /**
  * Inserta una tarea usando la API REST.
  */
-function addTask(e) {
+function insertarComentario(e) {
     e.preventDefault();
     
     let data = {
-        titulo:  document.querySelector("input[name=titulo]").value,
-        descripcion:  document.querySelector("input[name=descripcion]").value,
-        prioridad:  document.querySelector("input[name=prioridad]").value,
-        finalizada:  document.querySelector("input[name=finalizada]").checked
+        texto:  document.querySelector("input[name=texto]").value,
+        puntaje:  document.querySelector("#puntaje").value,
+        id_usuario:  document.querySelector("input[name=id_usuario]").value,
+        id_cohete:  document.querySelector("input[name=id_cohete]").value,
     }
 
-    fetch('api/tareas', {
+    fetch('api/comentario', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},       
         body: JSON.stringify(data) 
      })
      .then(response => {
-         getTasks();
+        let id=document.querySelector(".comentarios").id;
+         //getComentarios(id);
      })
      .catch(error => console.log(error));
 }
 
 // obtiene las tareas al iniciio
-getTasks();
+let id=document.querySelector(".comentarios").id;
+getComentarios(id);

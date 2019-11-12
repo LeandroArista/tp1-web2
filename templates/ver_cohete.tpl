@@ -41,12 +41,12 @@
     <a href='cohetes/'><i class="fas fa-arrow-left fa-2x m-4"></i></a>
   </div>
 </section>
-<section {if $admin }class="admin"{else}{if $logged}class="logged"{else}class="user"{/if}{/if}>
-  <div class="comentarios m-4" id='cohete-{$cohete->id_cohete}'>
+<section class="usuario" {if $admin }id="admin"{else}{if $logged}id="logged"{else}id="user"{/if}{/if}>
+  <div class="comentarios m-4" id='{$cohete->id_cohete}'>
     {include file="vue/coment_list.tpl"}
     {if $logged}
     
-    <form id="form-comentarios" class="bg-dark text-white form-inline d-flex justify-content-center align-items-center" action="insertarcomentario" method="POST">
+    <form id="form-comentario" class="bg-dark text-white form-inline d-flex justify-content-center align-items-center" action="insertarcomentario" method="POST">
                 <h2>Agregar Comentario</h2>
                 <div class="form-row w-100  p-2">
                    <label for="texto" class="text-center align-middle col-sm-2 col-form-label">Comentario</label>
@@ -76,6 +76,7 @@
   </div>
 </section {}>
 {include file="footer.tpl"}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
 <script src="js/comentarios.js"></script>
 </body>
 {include file="script.tpl"}

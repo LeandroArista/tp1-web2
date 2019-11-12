@@ -39,10 +39,9 @@ class ComentariosApiController {
             $this->view->response("El comentario con el id={$id_comentario} no existe", 404);
     }
 
-    public function insertarComentario($id_cohete,$id_usuario,$params = null) {
+    public function insertarComentario($params = null) {
         $data = $this->getData();
-        $fecha = getdate();
-        $id = $this->model->insertarComentario($data->texto, $fecha, $data->puntaje,$id_cohete,$id_usuario);
+        $id = $this->model->insertarComentario($data->texto, $data->puntaje,$data->id_usuario,$data->id_cohete);
         
         $tarea = $this->model->get($id);
         if ($tarea)

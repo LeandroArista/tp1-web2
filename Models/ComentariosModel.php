@@ -35,10 +35,9 @@ class ComentariosModel {
     return $this->CometariosCohete($id_cohete,$sql);
   }
 
-  public function insertarComentario($texto,$fecha,$puntaje,$id_usuario,$id_cohete) {
-    $fechaformat = date('Y-m-d', strtotime($fecha));
-    $query = $this->db->prepare('INSERT INTO comentarios(texto,fecha,puntaje,id_usuario,id_cohete) VALUES(?,?,?,?,?)');
-    $query->execute(array($texto,$fechaformat,$puntaje,$id_usuario,$id_cohete));
+  public function insertarComentario($texto,$puntaje,$id_usuario,$id_cohete) {
+    $query = $this->db->prepare('INSERT INTO comentarios(texto,fecha,puntaje,id_usuario,id_cohete) VALUES(?,NOW(),?,?,?)');
+    $query->execute(array($texto,$puntaje,$id_usuario,$id_cohete));
     return $this->db->lastInsertId();
   }
 

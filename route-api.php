@@ -12,7 +12,7 @@
     $router->addRoute("/comentariosfecha/:id_comentario", "GET", "ComentariosApiController", "getCometariosSortByFecha");
     $router->addRoute("/comentariosprioridad/:id_comentario", "GET", "ComentariosApiController", "getCometariosSortByPrioridad");
     $router->addRoute("/comentarios/:id_comentario", "DELETE", "ComentariosApiController", "borrarComentario");
-    $router->addRoute("/comentarios", "POST", "ComentariosApiController", "insertarComentario");
+    $router->addRoute("/comentario", "POST", "ComentariosApiController", "insertarComentario");
     
     //run
     $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']); 
