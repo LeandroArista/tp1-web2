@@ -1,7 +1,9 @@
 "use strict"
 
 // event listeners
-document.querySelector("#form-comentario").addEventListener('submit', insertarComentario);
+let form=document.querySelector("#form-comentario");
+if(form!=null)
+form.addEventListener('submit', insertarComentario);
 
 // define la app Vue
 let app = new Vue({
@@ -17,25 +19,25 @@ let app = new Vue({
 /**
  * Obtiene la lista de tareas de la API y las renderiza con Vue.
  */
-function getComentarios(id_cohete) {
+async function getComentarios(id_cohete) {
     let url='api/comentarios/'+id_cohete;
-    console.log(url);
-    fetch(url)
-    .then(response => response.json())
-    .then(
-        comentarios => {
-        app.comentarios = comentarios; 
-        let id=document.querySelector(".usuario").id;
-        if (id=="admin"){
-            app.isadmin=true;
-            app.isloged=true;
-        }else if(id=="logged"){
-            app.isloged=true;
+    try {
+        let response = await fetch(url);
+        if (response.ok) {
+            let json = await response.json();
+            app.comentarios = json; 
+            let id=document.querySelector(".usuario").id;
+            if (id=="admin"){
+                app.isadmin=true;
+                app.isloged=true;
+            }else if(id=="logged"){
+                app.isloged=true;
+            }
         }
-    })
-    .catch(error => console.log(error));
+    } catch (error) {
+        console.log(error);
     }
-
+}
 /**
  * Inserta una tarea usando la API REST.
  */
@@ -56,7 +58,7 @@ function insertarComentario(e) {
      })
      .then(response => {
         let id=document.querySelector(".comentarios").id;
-         //getComentarios(id);
+         getComentarios(id);
      })
      .catch(error => console.log(error));
 }

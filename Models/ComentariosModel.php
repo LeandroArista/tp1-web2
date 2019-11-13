@@ -22,17 +22,17 @@ class ComentariosModel {
 
   public function getComentarios($id_cohete){
     $sql='SELECT * FROM comentarios WHERE id_cohete = ?';
-    return $this->CometariosCohete($id_cohete,$sql);
+    return $this->ComentariosCohete($id_cohete,$sql);
   }
   
   public function getComentariosByPuntaje($id_cohete){
     $sql='SELECT * FROM comentarios WHERE id_cohete = ? ORDER BY puntaje DESC';
-    return $this->CometariosCohete($id_cohete,$sql);
+    return $this->ComentariosCohete($id_cohete,$sql);
   }
 
   public function getComentariosByFecha($id_cohete){
     $sql='SELECT * FROM comentarios WHERE id_cohete = ? ORDER BY fecha DESC';
-    return $this->CometariosCohete($id_cohete,$sql);
+    return $this->ComentariosCohete($id_cohete,$sql);
   }
 
   public function insertarComentario($texto,$puntaje,$id_usuario,$id_cohete) {

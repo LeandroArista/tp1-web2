@@ -6,7 +6,6 @@
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
 
     $router = new Router();
-
     // rutas
     $router->addRoute("/comentarios/:id_cohete", "GET", "ComentariosApiController", "getComentarios");
     $router->addRoute("/comentariosfecha/:id_cohete", "GET", "ComentariosApiController", "getComentariosByFecha");
