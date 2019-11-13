@@ -21,7 +21,7 @@ class ComentariosModel {
   }
 
   public function getComentarios($id_cohete){
-    $sql='SELECT * FROM comentarios WHERE id_cohete = ?';
+    $sql='SELECT c.id_comentario,c.texto,c.fecha,c.puntaje,s.nombre as usuario FROM comentarios as c INNER JOIN usuarios AS s ON c.id_usuario=s.id_usuario WHERE c.id_cohete = ?';
     return $this->ComentariosCohete($id_cohete,$sql);
   }
   

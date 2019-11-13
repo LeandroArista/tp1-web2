@@ -67,7 +67,7 @@
                     <input type="submit" class="btn btn-primary mb-2" value="Insertar">
                   </div>
                 </div>
-                <input type="text" name="id_usuario" value="{$user['id_usuario']}" class="d-none">
+                <input type="text" name="id_usuario" value="{$user['id_usuario']}" class="d-none" >
                 <input type="text" name="id_cohete" value="{$cohete->id_cohete}" class="d-none">
                 
     </form>
