@@ -3,7 +3,27 @@
 // event listeners
 let form=document.querySelector("#form-comentario");
 if(form!=null)
-form.addEventListener('submit', insertarComentario);
+    form.addEventListener('submit', insertarComentario);
+
+
+
+async function deleteComentario(itemid) {
+    try {
+        let url='api/eliminarcomentario/'+itemid;
+        let response = await fetch(url, {
+            "method": "DELETE",
+            "headers": { "Content-Type": "application/json" }
+        });
+        if (response.ok) {
+            console.log("borre " + itemid);
+        } else {
+            console.log("no se pudo borrar" + itemid);
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
 // define la app Vue
 let app = new Vue({
@@ -12,14 +32,20 @@ let app = new Vue({
         comentarios: [], 
         isloged: false,
         isadmin: false,
-
+    },
+    methods:{
+        eliminar:function(id){
+            deleteComentario(id);
+            getComentarios();
+        }
     }
 });
 
 /**
  * Obtiene la lista de tareas de la API y las renderiza con Vue.
  */
-async function getComentarios(id_cohete) {
+async function getComentarios() {
+    let id_cohete=document.querySelector(".comentarios").id;
     let url='api/comentarios/'+id_cohete;
     try {
         let response = await fetch(url);
@@ -38,6 +64,8 @@ async function getComentarios(id_cohete) {
         console.log(error);
     }
 }
+
+
 /**
  * Inserta una tarea usando la API REST.
  */
@@ -63,6 +91,4 @@ function insertarComentario(e) {
      .catch(error => console.log(error));
 }
 
-// obtiene las tareas al iniciio
-let id=document.querySelector(".comentarios").id;
-getComentarios(id);
+getComentarios();

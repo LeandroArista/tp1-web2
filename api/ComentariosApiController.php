@@ -53,7 +53,7 @@ class ComentariosApiController {
         $id_comentario = $params[':id_comentario'];
         $tarea = $this->model->get($id_comentario);
         if ($tarea) {
-            $this->model->delete($id);
+            $this->model->borrarComentario($id_comentario);
             $this->view->response("El comentario fue borrado con exito.", 200);
         } else
             $this->view->response("El comentario con el id={$id_comentario} no existe", 404);

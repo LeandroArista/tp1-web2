@@ -10,7 +10,7 @@
     $router->addRoute("/comentarios/:id_cohete", "GET", "ComentariosApiController", "getComentarios");
     $router->addRoute("/comentariosfecha/:id_cohete", "GET", "ComentariosApiController", "getComentariosByFecha");
     $router->addRoute("/comentariospuntaje/:id_cohete", "GET", "ComentariosApiController", "getComentariosByPuntaje");
-    $router->addRoute("/comentario/:id_comentario", "DELETE", "ComentariosApiController", "borrarComentario");
+    $router->addRoute("/eliminarcomentario/:id_comentario", "DELETE", "ComentariosApiController", "borrarComentario");
     $router->addRoute("/comentario", "POST", "ComentariosApiController", "insertarComentario");
     
     //run
