@@ -32,6 +32,7 @@ let app = new Vue({
         comentarios: [], 
         isloged: false,
         isadmin: false,
+        nombre:"",
     },
     methods:{
         eliminar:function(id){
@@ -53,11 +54,14 @@ async function getComentarios() {
             let json = await response.json();
             app.comentarios = json; 
             let id=document.querySelector(".usuario").id;
+            let nombre=document.querySelector(".user").id;
             if (id=="admin"){
                 app.isadmin=true;
                 app.isloged=true;
+                app.nombre=nombre;
             }else if(id=="logged"){
                 app.isloged=true;
+                app.nombre=nombre;
             }
         }
     } catch (error) {

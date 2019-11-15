@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center">
+<div class="user d-flex justify-content-center" id="{$user['nombre']}">
     <h3 class="w-75 d-flex justify-content-center bg-info text-white m-0 p-0 ">Comentarios {$cohete->nombre}</h3>
     {* <button type="button" :v-on:click.native="eliminar(comentario.id_comentario)" :id="comentario.id_comentario" class="btn_delete btn btn-light"><i class="far fa-trash-alt text-danger"></i></button> *}
 </div>
@@ -21,7 +21,7 @@
                         <span class="col-3 align-self-start justify-content-start">{{ comentario.fecha}}</span>
                         <span class="col-3 align-self-start justify-content-start"><i v-for="n in 5"  v-if="n <= parseInt(comentario.puntaje)" class="fas fa-star text-warning"></i></span>
                     </div>
-                    <span class="align-middle"v-if="isadmin">
+                    <span class="align-middle"v-if="(isadmin || nombre == comentario.usuario)">
                     <button type="button" @click="eliminar(comentario.id_comentario)" :id="comentario.id_comentario" class="btn_delete btn btn-light"><i class="far fa-trash-alt text-danger"></i></button>
                         
                     </span>
