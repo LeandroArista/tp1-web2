@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-10-2019 a las 04:46:00
+-- Tiempo de generación: 11-11-2019 a las 05:58:22
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.10
 
@@ -43,11 +43,12 @@ CREATE TABLE `cohetes` (
 --
 
 INSERT INTO `cohetes` (`id_cohete`, `nombre`, `fecha_creacion`, `altura`, `diametro`, `masa`, `id_empresa`) VALUES
-(1, 'falcon1', '2006-06-24', 21, 2, 38, 1),
-(2, 'falcon9', '2010-06-04', 70, 3, 549, 1),
+(1, 'Falcon1', '2006-06-24', 21, 2, 38, 1),
+(2, 'Falcon9', '2010-06-04', 70, 3, 549, 1),
 (3, 'Electron', '2007-05-25', 17, 1, 100, 2),
 (4, 'Proton', '1965-07-16', 53, 7, 657, 3),
-(5, 'Falcon Heavy', '2018-02-06', 70, 3, 1420, 1);
+(5, 'Falcon Heavy', '2018-02-06', 70, 3, 1420, 1),
+(6, 'New Glen 2-Stage', '2020-11-23', 30, 30, 300, 4);
 
 -- --------------------------------------------------------
 
@@ -68,9 +69,41 @@ CREATE TABLE `empresas` (
 --
 
 INSERT INTO `empresas` (`id_empresa`, `nombre`, `propietario`, `pais`, `fecha_fundacion`) VALUES
-(1, 'spacex', 'elon musk', 'eeuu', '2002-05-06'),
-(2, 'Rocket Lab', 'Peter Beck', 'eeuu', '2006-06-01'),
-(3, 'International Launch Services', 'Frank McKenna', 'Rusia', '1993-04-15');
+(1, 'Spacex', 'Elon Musk', 'EEUU', '2002-05-06'),
+(2, 'Rocket Lab', 'Peter Beck', 'EEUU', '2006-06-01'),
+(3, 'International Launch Services', 'Frank McKenna', 'Rusia', '1993-04-15'),
+(4, 'Blue Origin', ' Jeff Bezos', 'EEUU', '2000-01-01');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `fotoscohetes`
+--
+
+CREATE TABLE `fotoscohetes` (
+  `id_imagen` int(11) NOT NULL,
+  `ruta` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `id_cohete` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `fotoscohetes`
+--
+
+INSERT INTO `fotoscohetes` (`id_imagen`, `ruta`, `id_cohete`) VALUES
+(9, 'img/5dc8da0e1cb5b.jpg', 2),
+(10, 'img/5dc8da0e1e0d5.jpg', 2),
+(11, 'img/5dc8da7d2c90a.jpg', 3),
+(12, 'img/5dc8da7d2df22.jpg', 3),
+(13, 'img/5dc8daffec165.jpg', 4),
+(14, 'img/5dc8daffed3ed.jpg', 4),
+(15, 'img/5dc8daffee5ab.jpg', 4),
+(16, 'img/5dc8db6e6ee66.jpg', 5),
+(18, 'img/5dc8db6e70f47.jpg', 5),
+(21, 'img/5dc8deb496186.jpg', 6),
+(22, 'img/5dc8def8e7405.jpg', 1),
+(23, 'img/5dc8def8f2564.jpg', 1),
+(24, 'img/5dc8df3285b9d.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -82,16 +115,19 @@ CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
   `nombre` varchar(60) NOT NULL,
   `mail` varchar(80) NOT NULL,
-  `clave` varchar(255) NOT NULL
+  `clave` varchar(255) NOT NULL,
+  `administrador` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombre`, `mail`, `clave`) VALUES
-(1, 'usuario1', 'usuario1@gmail.com', '$2y$10$Q2OzG2UEQSd9SJhe1A0lp.xHLBRoUc6JfTImZ5Wn92y6fIfnQ0zvi'),
-(2, 'usuario2', 'usuario2@gmail.com', '$2y$10$t57LTOFTEsivTZ8DMrqoLONpwpmGFMhSg/9ylKcLLS2Mh.77Lzali');
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `mail`, `clave`, `administrador`) VALUES
+(1, 'usuario1', 'usuario1@gmail.com', '$2y$10$Q2OzG2UEQSd9SJhe1A0lp.xHLBRoUc6JfTImZ5Wn92y6fIfnQ0zvi', 1),
+(2, 'usuario2', 'usuario2@gmail.com', '$2y$10$t57LTOFTEsivTZ8DMrqoLONpwpmGFMhSg/9ylKcLLS2Mh.77Lzali', 0),
+(4, 'usuario3', 'usuario3@gmail.com', '$2y$10$0WmfGBXXN29Oz8XdHpO/ROWQVj5BaZrDzWQe9kiryEUsvDFiTmfTq', 0),
+(5, 'leandro', 'leandroalbertoarista@gmail.com', '$2y$10$zMk62Udd55dCPsxcNG0E4OFBGgTEngE9XYC5cYkkjbjhAkxUpyMDC', 1);
 
 --
 -- Índices para tablas volcadas
@@ -111,6 +147,12 @@ ALTER TABLE `empresas`
   ADD PRIMARY KEY (`id_empresa`);
 
 --
+-- Indices de la tabla `fotoscohetes`
+--
+ALTER TABLE `fotoscohetes`
+  ADD PRIMARY KEY (`id_imagen`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -124,19 +166,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `cohetes`
 --
 ALTER TABLE `cohetes`
-  MODIFY `id_cohete` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_cohete` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `empresas`
 --
 ALTER TABLE `empresas`
-  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `fotoscohetes`
+--
+ALTER TABLE `fotoscohetes`
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas

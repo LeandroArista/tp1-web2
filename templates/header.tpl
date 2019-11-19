@@ -18,18 +18,18 @@
     <header>
       <nav class="navbar navbar-expand-sm navbar-expand-lg navbar-dark bg-personalized">
         <!--   BRAND   -->
-        <div class="row w-100 justify-content-start align-self-center">
-          <div class="col-3 col-sm-2 col-md-2 align-items-start p-1">
+        <div class="row w-100 justify-content-between align-self-center">
+          <div class="col-3 col-sm-2 col-md-2 d-flex justify-content-start align-items-start p-1">
             <a class="navbar-brand " href="#"><img src="./images/logo.png" id="logo" alt="SpaceRocket logo"></a>
           </div>
 
-          <div class="col-6 col-sm-4 col-md-6 align-self-center">
+          <div class="col-auto d-flex justify-content-auto align-self-center">
             <h1 class="text-center navbar-text">
               Al infinito y mas alla
             </h1>
           </div>
 
-          <div class="col-3 col-sm-4 col-md-4 justify-content-end align-self-center">
+          <div class="col-auto d-flex justify-content-end align-self-center">
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-links"
               aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,23 @@
               <ul class="nav navbar-nav align-self-center justify-content-end">
                 {foreach from= $MENU key=k item=i}
                   {if !(!$logged && $k=="Logout") && !($logged && ($k == "Login" || $k == "Register"))}
-                    <li class="nav-item{if $k==$SelMenu} active{/if}"><a class="nav-link" href="{$i}">{$k}</a></li>
+                      {if $k=="Logout" && !empty($user)}
+                        <li class="nav-item dropdown {if $k==$SelMenu} active{/if}">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {$user['nombre']}
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{$i}"> {$k}</a>
+                          </div>
+                        </li>
+                      {else}
+                        {if ($k=="Usuarios" && (($logged && !$admin)|| (!$logged)) )}
+
+                        {else}
+                          <li class="nav-item{if $k==$SelMenu} active{/if}"><a class="nav-link" href="{$i}">{$k}</a></li>
+                        {/if}
+                      {/if}
+                    
                   {/if}
                  {/foreach}
               </ul>

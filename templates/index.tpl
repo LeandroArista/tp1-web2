@@ -132,3 +132,6 @@
     </section>
 </main>
 {include file="footer.tpl"}
+</body>
+{include file="script.tpl"}
+</html>
