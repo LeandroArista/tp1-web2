@@ -55,6 +55,5 @@
     </section>
 {include file="footer.tpl"}
 </body>
-<script src="cohetessort.js"></script>
 {include file="script.tpl"}
 </html>
