@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2019 a las 05:58:22
+-- Tiempo de generación: 20-11-2019 a las 01:15:24
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.10
 
@@ -49,6 +49,35 @@ INSERT INTO `cohetes` (`id_cohete`, `nombre`, `fecha_creacion`, `altura`, `diame
 (4, 'Proton', '1965-07-16', 53, 7, 657, 3),
 (5, 'Falcon Heavy', '2018-02-06', 70, 3, 1420, 1),
 (6, 'New Glen 2-Stage', '2020-11-23', 30, 30, 300, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id_comentario` int(11) NOT NULL,
+  `texto` text NOT NULL,
+  `fecha` datetime NOT NULL,
+  `puntaje` tinyint(4) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_cohete` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`id_comentario`, `texto`, `fecha`, `puntaje`, `id_usuario`, `id_cohete`) VALUES
+(2, 'esta bueno esto', '2019-11-13 17:38:02', 5, 2, 1),
+(3, 'mi vieja mula ya no es lo que era', '2019-11-13 17:38:25', 5, 2, 1),
+(5, 'esto funca', '2019-11-13 18:48:00', 2, 2, 1),
+(8, 'es nuevo esta bueno', '2019-11-14 19:22:02', 3, 2, 2),
+(9, 'estoy borrando por un sueño', '2019-11-14 20:49:59', 1, 5, 1),
+(11, 'que hago aca', '2019-11-14 21:01:32', 2, 4, 1),
+(12, 'esta andando todo ', '2019-11-19 21:11:36', 3, 5, 1),
+(13, 'le falta css', '2019-11-19 21:12:43', 1, 5, 2);
 
 -- --------------------------------------------------------
 
@@ -141,6 +170,12 @@ ALTER TABLE `cohetes`
   ADD KEY `id_empresa` (`id_empresa`);
 
 --
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id_comentario`);
+
+--
 -- Indices de la tabla `empresas`
 --
 ALTER TABLE `empresas`
@@ -167,6 +202,12 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `cohetes`
   MODIFY `id_cohete` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `empresas`

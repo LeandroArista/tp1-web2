@@ -40,7 +40,7 @@
                   {if !(!$logged && $k=="Logout") && !($logged && ($k == "Login" || $k == "Register"))}
                       {if $k=="Logout" && !empty($user)}
                         <li class="nav-item dropdown {if $k==$SelMenu} active{/if}">
-                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <a class="nav-link dropdown-toggle text-capitalize" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {$user['nombre']}
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">

@@ -33,6 +33,7 @@ let app = new Vue({
         isloged: false,
         isadmin: false,
         nombre:"",
+        sort:"",
         cont:0,
     },
     methods:{
@@ -40,12 +41,61 @@ let app = new Vue({
             deleteComentario(id);
             getComentarios();
         },
+        sortpuntaje:function(appsort){
+            getComentariosSortByPuntaje(appsort);
+        },
+        sortfecha:function(appsort){
+            getComentariosSortByFecha(appsort);
+        },
+        disable:function(){
+            getComentarios();
+        }
+
     }
 });
 
 /**
  * Obtiene la lista de tareas de la API y las renderiza con Vue.
  */
+function assignar(json,appsort,sort){
+    app.comentarios = json;
+    let inverso=false;
+    app.sort=sort;
+    if (appsort!="" && sort!=""){
+        if(appsort=="puntaje" && sort=="puntaje"){
+            inverso=true;
+            app.sort="reversepuntaje";
+        }
+        if(appsort=="fecha" && sort=="fecha"){
+            inverso=true;
+            app.sort="reversefecha";
+        }
+        if(appsort=="reversepuntaje" && sort=="puntaje"){
+            inverso=false;
+            app.sort="puntaje";
+        }
+        if(appsort=="reversepuntaje" && sort=="puntaje"){
+            inverso=false;
+            app.sort="puntaje";
+        }
+    }
+    
+    if (inverso == true)
+        app.comentarios = json.reverse();
+    
+    let id=document.querySelector(".usuario").id;
+    let nombre=document.querySelector(".user").id;
+    app.cont=json.length;
+    if (id=="admin"){
+        app.isadmin=true;
+        app.isloged=true;
+        app.nombre=nombre;
+    }else if(id=="logged"){
+        app.isloged=true;
+        app.nombre=nombre;
+    }
+}
+
 async function getComentarios() {
     let id_cohete=document.querySelector(".comentarios").id;
     let url='api/comentarios/'+id_cohete;
@@ -53,19 +103,35 @@ async function getComentarios() {
         let response = await fetch(url);
         if (response.ok) {
             let json = await response.json();
-            app.comentarios = json; 
-            let id=document.querySelector(".usuario").id;
-            let nombre=document.querySelector(".user").id;
-            console.log(json.length);
-            app.cont=json.length;
-            if (id=="admin"){
-                app.isadmin=true;
-                app.isloged=true;
-                app.nombre=nombre;
-            }else if(id=="logged"){
-                app.isloged=true;
-                app.nombre=nombre;
-            }
+            assignar(json,"");
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getComentariosSortByPuntaje(appsort) {    
+    let id_cohete=document.querySelector(".comentarios").id;
+    let url='api/comentariospuntaje/'+id_cohete;
+    try {
+        let response = await fetch(url);
+        if (response.ok) {
+            let json = await response.json();
+            assignar(json,appsort,"puntaje");
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getComentariosSortByFecha(appsort) {
+    let id_cohete=document.querySelector(".comentarios").id;
+    let url='api/comentariosfecha/'+id_cohete;
+    try {
+        let response = await fetch(url);
+        if (response.ok) {
+            let json = await response.json();
+            assignar(json,appsort,"fecha");
         }
     } catch (error) {
         console.log(error);

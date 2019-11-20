@@ -1,18 +1,15 @@
 {include file="header.tpl"}
       <section class="align-content-center">
         <h1>Cohetes</h1>
-        <div class="m-2">
-          {if $sort}
-          <a class="btn btn-primary" href="cohetes" role="button"><i class="far fa-eye-slash"></i></a>
-          {else}
-          <a class="btn btn-primary" href="sortcohetes" role="button"><i class="far fa-eye"></i></a>
-          {/if}
-          <label>Ordenar por Empresa</label>
-        </div>
+        
         <table class="table table-bordered">
         <tr class="thead-dark">
           <th>Nombre</th>
-          <th>Empresa</th>
+          <th>{if $sort}
+          <a class="btn" href="cohetes" role="button"><i  class="fas fa-sort-down"></i></a>
+          {else}
+          <a class="btn" href="sortcohetes" role="button"><i  class="fas fa-sort"></i></a>
+          {/if}Empresa</th>
           <th></th>
         </tr>
         {foreach from=$lista_cohetes item=cohete}

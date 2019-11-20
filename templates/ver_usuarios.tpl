@@ -3,7 +3,6 @@
       <h1>Usuarios</h1>
      <table class="table table-bordered m-2">
       <tr class="thead-dark text-center">
-        <th>ID</th>
         <th>Nombre</th>
         <th>Email</th>
         <th>Administrador</th>
@@ -11,7 +10,6 @@
       </tr>
       {foreach from=$lista_usuarios item=usuario}
         <tr class="text-center " >
-          <td>{$usuario->id_usuario}</td>
           <td>{$usuario->nombre}</td>
           <td>{$usuario->mail}</td>
           {if $usuario->administrador == true}
