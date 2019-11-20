@@ -26,12 +26,12 @@ class ComentariosModel {
   }
   
   public function getComentariosByPuntaje($id_cohete){
-    $sql='SELECT * FROM comentarios WHERE id_cohete = ? ORDER BY puntaje DESC';
+    $sql='SELECT c.id_comentario,c.texto,c.fecha,c.puntaje,s.nombre as usuario FROM comentarios as c INNER JOIN usuarios AS s ON c.id_usuario=s.id_usuario WHERE c.id_cohete = ? ORDER BY puntaje DESC';
     return $this->ComentariosCohete($id_cohete,$sql);
   }
 
   public function getComentariosByFecha($id_cohete){
-    $sql='SELECT * FROM comentarios WHERE id_cohete = ? ORDER BY fecha DESC';
+    $sql='SELECT c.id_comentario,c.texto,c.fecha,c.puntaje,s.nombre as usuario FROM comentarios as c INNER JOIN usuarios AS s ON c.id_usuario=s.id_usuario WHERE c.id_cohete = ? ORDER BY fecha DESC';
     return $this->ComentariosCohete($id_cohete,$sql);
   }
 

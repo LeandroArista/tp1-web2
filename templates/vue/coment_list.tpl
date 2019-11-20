@@ -6,9 +6,28 @@
             </div>
             <div class="w-75 container bg-info text-white">
                         <div class="row font-weight-bold ">
-                            <span class="col-3 align-self-start justify-content-start">Usuario</span>
-                            <span class="col-3 align-self-start justify-content-start">Fecha</span>
-                            <span class="col-3 align-self-start justify-content-start">Calificacion</span>
+                            <span class="col-3 align-self-start justify-content-start">
+                                Usuario
+                                <button  type="button" @click="disable()" :id="sort" class="btn btn-link text-white p-0 m-0 mr-1">
+                                <i v-if='sort' class="fas fa-backspace"></i>
+                                </button>
+                            </span>
+                            <span class="col-3 align-self-start justify-content-start">
+                                <button type="button" @click="sortfecha(sort)" id="sortfecha" class="btn btn-link text-white p-0 m-0 mr-1">
+                                <i v-if='sort == "reversefecha"' class="fas fa-sort-up"></i>
+                                <i v-if='sort == "fecha"' class="fas fa-sort-down"></i>
+                                <i v-if='sort !== "fecha" && sort!== "reversefecha"' class="fas fa-sort"></i>
+                                </button>
+                                Fecha
+                            </span>
+                            <span class="col-3 align-self-start justify-content-start">
+                                <button type="button" @click="sortpuntaje(sort)" id="sortpuntaje" class="btn btn-link text-white p-0 m-0 mr-1">
+                                <i v-if='sort == "reversepuntaje"' class="fas fa-sort-up"></i>
+                                <i v-if='sort == "puntaje"' class="fas fa-sort-down"></i>
+                                <i v-if='sort !== "puntaje" && sort!== "reversepuntaje"' class="fas fa-sort"></i>
+                                </button>
+                                Calificacion
+                            </span>
                         </div>
             </div>
         </div>       
