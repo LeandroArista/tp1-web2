@@ -3,13 +3,11 @@
       <h1>Empresas</h1>
      <table class="table table-bordered m-2">
       <tr class="thead-dark">
-        <th>ID</th>
         <th>Nombre</th>
         <th></th>
       </tr>
       {foreach from=$lista_empresas item=empresa}
         <tr>
-          <td>{$empresa->id_empresa}</td>
           <td>{$empresa->nombre}</td>
           {if $logged && $admin } 
             <td>

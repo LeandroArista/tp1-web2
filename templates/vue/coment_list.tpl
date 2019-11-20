@@ -37,9 +37,9 @@
         <ul class="list-group-flush m-0 p-0 w-75 ">
         <li class="list-group-item m-0 p-0" v-for="comentario in comentarios">
                 <ul class="list-group-flush m-0 p-0">
-                    <li class="list-group-item list-group-item-info d-flex w-100 justify-content-between align-middle ">
+                    <li :class="[ nombre == comentario.usuario ? 'list-group-item-warning text-dark' : 'list-group-item-info' ]" class="list-group-item  d-flex w-100 justify-content-between align-middle" >
                         <div class="row font-weight-bold w-100 ">
-                            <span class="col-3 align-self-start justify-content-start">{{ comentario.usuario }}</span>
+                            <span class="col-3 align-self-start justify-content-start text-capitalize">{{ comentario.usuario }}</span>
                             <span class="col-3 align-self-start justify-content-start">{{ comentario.fecha}}</span>
                             <span class="col-3 align-self-start justify-content-start"><i v-for="n in 5"  v-if="n <= parseInt(comentario.puntaje)" class="fas fa-star text-warning"></i></span>
                         </div>
